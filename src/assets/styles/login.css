@@ -1,0 +1,88 @@
+.login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login-box .logo {
+    position: fixed;
+    top: 0;
+}
+
+.form-group p {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.login-box {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 50px;
+}
+
+.welcome {
+  margin-bottom: 20px;
+}
+
+.welcome p {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;  
+}
+
+.welcome p:nth-child(1) {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  width: 300px;
+}
+
+.forgot-password {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: Montserrat;
+  font-size: 16px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: #7631E6;
+    font-family: Montserrat;
+}
+
+
+.login-form button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #7631E6;
+  color: #ffffff;
+  font-family: Montserrat;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Styling for the image (you can add your image styles here) */
+.login-image {
+  text-align: center;
+}
+
+.login-image img {
+    height: 100vh;
+}

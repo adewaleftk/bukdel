@@ -1,0 +1,36 @@
+.delicacieshero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 550px;
+}
+
+.delicacieshero div img {
+    height: 400px;
+}
+
+.delicacieshero div p:first-child {
+    font-family: Montserrat;
+    font-size: 50px;
+    font-weight: 800;
+    color: #ff0000;  
+}
+
+.delicacieshero div p:nth-child(2), .delicacieshero div p:nth-child(3), .delicacieshero div p:nth-child(4) {
+    font-family: Montserrat;
+    font-size: 50px;
+    font-weight: 800;  
+}
+
+.delicacieshero div p span {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 800;
+    color: #f89d34;   
+}
+
+.delicacieshero .auth {
+    margin-top: 50px;
+}

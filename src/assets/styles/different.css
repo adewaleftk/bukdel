@@ -1,0 +1,67 @@
+.different {
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.different-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.different-heading h3 {
+    font-family: Montserrat;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.different-cust {
+    display: flex;
+    flex-direction: column;
+}
+
+.different-cust div {
+    margin-top: 10px;
+}
+
+.different-cust-info {
+    margin-bottom: 50px;
+}
+
+.different-ext {
+    display: flex;
+    flex-direction: column;
+}
+
+.different-ext div {
+    margin-top: 50px;
+}
+
+.different-ext h3 {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.different-ext p {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+
+.different-cust h3 {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.different-cust p {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 5px;
+}
