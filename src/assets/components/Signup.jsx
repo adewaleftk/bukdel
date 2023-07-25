@@ -42,7 +42,9 @@ function Signup() {
     
     <div className='signup'>
         <div className='signup-box'>
-            <div className='logo'>BUKDEL</div>
+            <div className='logo'>
+            <a href="/">BUKDEL</a>
+            </div>
             <div className='signup-heading'>
                 <h2>Join Us</h2>
                 <p>Create an account</p>

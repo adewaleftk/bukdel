@@ -25,7 +25,9 @@ function Login() {
     return (
       <div className='login'>
         <div className='login-box'>
-          <div className='logo'>BUKDEL</div>
+          <div className='logo'>
+            <a href="/">BUKDEL</a>
+          </div>
           <div className='welcome'>
             <p>Welcome Back</p>
             <p>Log in to your account</p>
