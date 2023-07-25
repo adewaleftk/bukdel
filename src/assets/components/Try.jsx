@@ -34,8 +34,12 @@ function Try() {
                 </div>
                 <div>
                     <div className='auth'>
-                        <div>Login</div>
-                        <div>Sign Up</div>
+                        <div>
+                            <a href='/login'>Login</a>
+                        </div>
+                        <div className='join'>
+                            <a href='/join'>Sign Up</a>
+                        </div>
                     </div>
                 </div>
             </div>

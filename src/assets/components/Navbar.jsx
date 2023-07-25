@@ -3,7 +3,9 @@ import '../styles/navbar.css'
 function Navbar() {
   return (
     <div className='navbar'>
-        <div className='logo'>BUKDEL</div>
+        <div className='logo'>
+          <a href="/">BUKDEL</a>
+        </div>
         <div className='auth'>
             <div>
               <a href='/login'>Login</a>
