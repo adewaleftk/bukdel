@@ -1,3 +1,82 @@
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.delicacieshero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 250px;
+
+}
+
+.delicacieshero div img {
+    height: 40vw;
+}
+
+.delicacieshero div p:first-child {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 800;
+    color: #ff0000;  
+}
+
+.delicacieshero div p:nth-child(2), .delicacieshero div p:nth-child(3), .delicacieshero div p:nth-child(4) {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 800;  
+}
+
+.delicacieshero div p span {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 800;
+    color: #f89d34;   
+}
+
+.delicacieshero .auth {
+    margin-top: 30px;
+}
+}
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+.delicacieshero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 450px;
+}
+
+.delicacieshero div img {
+    width: 40vw;
+}
+
+.delicacieshero div p:first-child {
+    font-family: Montserrat;
+    font-size: 35px;
+    font-weight: 800;
+    color: #ff0000;  
+}
+
+.delicacieshero div p:nth-child(2), .delicacieshero div p:nth-child(3), .delicacieshero div p:nth-child(4) {
+    font-family: Montserrat;
+    font-size: 35px;
+    font-weight: 800;  
+}
+
+.delicacieshero div p span {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 800;
+    color: #f89d34;   
+}
+
+.delicacieshero .auth {
+    margin-top: 30px;
+}
+}
+@media only screen and (min-width: 961px) {
+    
 .delicacieshero {
     display: flex;
     flex-direction: row;
@@ -33,4 +112,5 @@
 
 .delicacieshero .auth {
     margin-top: 50px;
+}
 }

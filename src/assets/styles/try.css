@@ -1,3 +1,114 @@
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.try {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.try-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* height: 450px; */
+}
+
+.try-heading h3 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;   
+}
+
+.try-heading p {
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.try-info div h3 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.try-info div p {
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.try-info div .auth {
+    margin-top: 20px;
+}
+
+.try-info div img {
+    width: 220px;
+    display: none;
+}
+
+.try-info div {
+    margin: 20px 20px 20px 0px;
+}
+}
+
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+.try {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.try-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+}
+
+.try-heading h3 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;   
+}
+
+.try-heading p {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.try-info div h3 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.try-info div p {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.try-info div .auth {
+    margin-top: 20px;
+}
+
+.try-info div img {
+    width: 20vw;
+    display: none;
+}
+
+.try-info div {
+    margin: 20px 20px 20px 0px;
+}
+}
+@media only screen and (min-width: 961px) {
+
 .try {
     display: flex;
     flex-direction: column;
@@ -48,4 +159,5 @@
 
 .try-info div {
     margin: 20px 20px 20px 0px;
+}
 }

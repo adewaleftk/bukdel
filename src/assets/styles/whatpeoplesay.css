@@ -1,3 +1,93 @@
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.whatpeoplesay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatpeoplesay-heading {
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+.whatpeoplesay-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.whatpeoplesay-info div {
+    background: rgb(229, 248, 248);
+    width: 300px;
+    height: 130px;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.whatpeoplesay-info div p:last-child {
+    font-family: Montserrat;
+    font-size: 18px !important ;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.whatpeoplesay-info div p:nth-child(1), .whatpeoplesay-info div p:nth-child(2), .whatpeoplesay-info div p:nth-child(3), .whatpeoplesay-info div p:nth-child(4), .whatpeoplesay-info div p:nth-child(5) {
+    font-size: 12px;
+    font-family: Montserrat;
+}
+}
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+.whatpeoplesay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatpeoplesay-heading {
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+.whatpeoplesay-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.whatpeoplesay-info div {
+    background: rgb(229, 248, 248);
+    width: 300px;
+    height: 130px;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.whatpeoplesay-info div p:last-child {
+    font-family: Montserrat;
+    font-size: 18px !important ;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.whatpeoplesay-info div p:nth-child(1), .whatpeoplesay-info div p:nth-child(2), .whatpeoplesay-info div p:nth-child(3), .whatpeoplesay-info div p:nth-child(4), .whatpeoplesay-info div p:nth-child(5) {
+    font-size: 12px;
+    font-family: Montserrat;
+}
+}
+@media only screen and (min-width: 961px) {
+
 .whatpeoplesay {
     display: flex;
     flex-direction: column;
@@ -38,4 +128,5 @@
 .whatpeoplesay-info div p:nth-child(1), .whatpeoplesay-info div p:nth-child(2), .whatpeoplesay-info div p:nth-child(3), .whatpeoplesay-info div p:nth-child(4), .whatpeoplesay-info div p:nth-child(5) {
     font-size: 12px;
     font-family: Montserrat;
+}
 }

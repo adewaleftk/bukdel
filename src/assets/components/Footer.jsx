@@ -26,6 +26,7 @@ function Footer() {
         </div>
         <div className='footer-support'>
             <h4>Help and Support</h4>
+            <h4>Support</h4>
             <p>About Us</p>
             <p>FAQs</p>
             <p>Contact Us</p>

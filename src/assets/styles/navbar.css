@@ -5,6 +5,135 @@
     padding: 0;
     box-sizing: border-box;
 }
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: 0px 1.5px 0px 0px rgba(0, 0, 0, 0.25);
+    }
+    
+    .auth a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    
+    .auth .join a {
+        text-decoration: none;
+        color: #7631E6;
+    }
+    
+    .logo {
+        font-family: Montserrat;
+        font-size: 25px;
+        font-weight: 800;
+        line-height: 49px;
+        letter-spacing: 0em;   
+    }
+    
+    .auth {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .auth div:nth-child(1) {
+        background: #7631E6;
+        color: #ffffff;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0em;   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        width: 70px;
+        height: 40px;
+    }
+    
+    .auth div:nth-child(2) {
+        background: #ffffff;
+        border: 1px solid #7631E6;
+        color: #7631E6;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0em;   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 10px;
+        box-shadow: 0px 1.5px 0px 0px rgba(0, 0, 0, 0.25);
+    }
+    
+    .auth a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    
+    .auth .join a {
+        text-decoration: none;
+        color: #7631E6;
+    }
+    
+    .logo {
+        font-family: Montserrat;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 49px;
+        letter-spacing: 0em;   
+    }
+    
+    .auth {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .auth div:nth-child(1) {
+        background: #7631E6;
+        color: #ffffff;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0em;   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        width: 130px;
+        height: 40px;
+    }
+    
+    .auth div:nth-child(2) {
+        background: #ffffff;
+        border: 1px solid #7631E6;
+        color: #7631E6;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0em;   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
+        height: 40px;
+    }
+}
+
+@media only screen and (min-width: 961px) {
 
 .navbar {
     display: flex;
@@ -66,4 +195,5 @@
     align-items: center;
     width: 130px;
     height: 40px;
+}
 }

@@ -1,3 +1,73 @@
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.howitworks {
+    background: #F89D34;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.howitworks div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.howitworks div h2 {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 700;   
+}
+
+.howitworks div h4 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.howitworks div p {
+    font-family: Montserrat;
+    font-size: 14px;
+    /* margin-top: 10px; */
+    font-weight: 500;   
+}
+}
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+.howitworks {
+
+    background: #F89D34;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.howitworks div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 70px;
+}
+
+.howitworks div h2 {
+    font-family: Montserrat;
+    font-size: 45px;
+    font-weight: 700;   
+}
+
+.howitworks div h4 {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.howitworks div p {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;   
+}
+}
+@media only screen and (min-width: 961px) {
 .howitworks {
     height: 500px;
     background: #F89D34;
@@ -30,4 +100,5 @@
     font-family: Montserrat;
     font-size: 20px;
     font-weight: 500;   
+}
 }

@@ -1,3 +1,238 @@
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.howitworks2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 30px; */
+}
+
+.howitworks2-heading {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.howitworks2-info {
+    display: flex;
+    flex-direction: row;
+    /* margin: 30px; */
+}
+
+.select {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url(../images/select.png);
+    background-size: cover;
+    height: 200px;
+    margin-right: 25px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.select-info {
+    background: #7631E6;
+    display: flex;
+    flex-direction: column;
+    align-self: self-end;
+    height: 90px;
+}
+
+.select-info p {
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;  
+}
+
+.select-info h4 {
+    font-family: Montserrat;
+    font-size:11px;
+    font-weight: 600;
+}
+
+.prepare {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url(../images/prepare.png);
+    background-size: cover;
+    height: 200px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.prepare-info {
+    background: #7631E6;
+    display: flex;
+    flex-direction: column;
+    align-self: self-end;
+    height: 90px;
+}
+
+.prepare-info p {
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;  
+}
+
+.prepare-info h4 {
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.consume {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url(../images/consume.png);
+    background-size: cover;
+    height: 200px;
+    margin-left: 25px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.consume-info {
+    background: #7631E6;
+    display: flex;
+    flex-direction: column;
+    align-self: self-end;
+    height: 90px;
+}
+
+.consume-info p {
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;  
+}
+
+.consume-info h4 {
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight:600;
+}
+}
+
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+.howitworks2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.howitworks2-heading {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.howitworks2-info {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.select {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url(../images/select.png);
+    background-size: cover;
+    height: 200px;
+    margin-right: 25px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.select-info {
+    background: #7631E6;
+    display: flex;
+    flex-direction: column;
+    align-self: self-end;
+    height: 90px;
+}
+
+.select-info p {
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;  
+}
+
+.select-info h4 {
+    font-family: Montserrat;
+    font-size:11px;
+    font-weight: 600;
+}
+
+.prepare {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url(../images/prepare.png);
+    background-size: cover;
+    height: 200px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.prepare-info {
+    background: #7631E6;
+    display: flex;
+    flex-direction: column;
+    align-self: self-end;
+    height: 90px;
+}
+
+.prepare-info p {
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;  
+}
+
+.prepare-info h4 {
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.consume {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: url(../images/consume.png);
+    background-size: cover;
+    height: 200px;
+    margin-left: 25px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.consume-info {
+    background: #7631E6;
+    display: flex;
+    flex-direction: column;
+    align-self: self-end;
+    height: 90px;
+}
+
+.consume-info p {
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 500;  
+}
+
+.consume-info h4 {
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight:600;
+}
+}
+
+@media only screen and (min-width: 961px) {
 .howitworks2 {
     display: flex;
     flex-direction: column;
@@ -108,4 +343,5 @@
     font-family: Montserrat;
     font-size: 17px;
     font-weight:600;
+}
 }

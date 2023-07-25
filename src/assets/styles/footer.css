@@ -1,3 +1,63 @@
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.footer-bukdel img {
+    margin-right: 10px;
+    margin-top: 40px;
+    height: 25px;
+}
+
+.footer-bukdel p {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 500;    
+}
+
+.footer-bukdel h3 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 49px;
+    letter-spacing: 0em; 
+}
+
+.footer-services h4 {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 49px;
+    letter-spacing: 0em; 
+}
+
+.footer-services p {
+    font-family: Montserrat;
+    font-size: 15px; 
+}
+
+.footer-support h4 {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 49px;
+    letter-spacing: 0em; 
+}
+
+.footer-support h4:nth-child(1) {
+    display: none;
+}
+
+.footer-support p {
+    font-family: Montserrat;
+    font-size: 15px; 
+}
+}
+
+@media only screen and (min-width: 551px) and (max-width: 960px) {
 .footer {
     display: flex;
     flex-direction: row;
@@ -46,7 +106,70 @@
     letter-spacing: 0em; 
 }
 
+.footer-support h4:nth-child(2) {
+    display: none;
+}
+
 .footer-support p {
     font-family: Montserrat;
     font-size: 15px; 
+}
+}
+@media only screen and (min-width: 961px) {
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.footer-bukdel img {
+    margin-right: 10px;
+    margin-top: 40px;
+    height: 25px;
+}
+
+.footer-bukdel p {
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 500;    
+}
+
+.footer-bukdel h3 {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 49px;
+    letter-spacing: 0em; 
+}
+
+.footer-services h4 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 49px;
+    letter-spacing: 0em; 
+}
+
+.footer-services p {
+    font-family: Montserrat;
+    font-size: 15px; 
+}
+
+.footer-support h4 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 49px;
+    letter-spacing: 0em; 
+}
+
+.footer-support h4:nth-child(2) {
+    display: none;
+}
+
+.footer-support p {
+    font-family: Montserrat;
+    font-size: 15px; 
+}
 }

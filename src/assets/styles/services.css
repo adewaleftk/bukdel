@@ -1,3 +1,126 @@
+
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-heading {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0em;   
+}
+
+.services-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-info div img {
+    width: 200px;
+}
+
+.services-info div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-info h3 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0em;   
+}
+
+.services-info p {
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.services-info p:nth-child(5) {
+    color: #7631E6;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.services-info a {
+    color: #7631E6;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+}
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+.services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-heading {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0em;   
+}
+
+.services-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services-info div img {
+    width: 270px;
+}
+
+.services-info div {
+    width: 290px;
+}
+
+.services-info h3 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0em;   
+}
+
+.services-info p {
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.services-info p:nth-child(5) {
+    color: #7631E6;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.services-info a {
+    color: #7631E6;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+}
+@media only screen and (min-width: 961px) {
 .services {
     display: flex;
     flex-direction: column;
@@ -51,4 +174,5 @@
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
+}
 }

@@ -25,7 +25,7 @@ function HowItWorks2() {
             </div>
             <div className='consume'>
                 <div className='consume-info'>
-                    <h4>You Heat and Confuse</h4>
+                    <h4>You Heat and Consume</h4>
                     <p>We deliver fresh and hot. You can</p>
                     <p>also heat it up before consumption.</p>
                 </div>
