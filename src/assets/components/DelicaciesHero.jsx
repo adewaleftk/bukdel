@@ -10,9 +10,11 @@ function DelicaciesHero() {
             <p><span>Jollof Rice </span>Prepared</p>
             <p>and Ready in 5minutes</p>
             <div className='auth'>
-                <div>Login</div>
-                <div>Sign Up</div>
-            </div>
+              <div>
+                <a href='/login'>Login</a>
+              </div>
+            <div>Sign Up</div>
+        </div>
         </div>
         <div>
             <img src={Jollof} alt="A plate of Jollof Rice" />

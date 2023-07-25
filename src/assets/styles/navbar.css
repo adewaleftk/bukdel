@@ -20,6 +20,11 @@
     color: #ffffff;
 }
 
+.auth .join a {
+    text-decoration: none;
+    color: #7631E6;
+}
+
 .logo {
     font-family: Montserrat;
     font-size: 30px;

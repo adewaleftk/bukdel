@@ -1,0 +1,80 @@
+.signup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.signup-image img {
+    height: 100vh;
+}
+
+.signup-first-last {
+    display: flex;
+    flex-direction: row;
+}
+
+.signup-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-box .logo {
+    position: fixed;
+    top: 0;
+}
+
+.signup-heading h2 {
+    font-size: 40px;
+    font-weight: 800;
+    font-family: Montserrat;
+    color: #7631E6;
+}
+
+.signup-heading p {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+#firstName, #lastName {
+    font-size: 16px;
+    font-family: Montserrat;
+    width: 175px;
+    margin-bottom: 10px;
+}
+
+#email, #phoneNumber, #password, #submit {
+    font-size: 16px;
+    font-family: Montserrat;
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+.signup-box label {
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 700;
+}
+
+#submit {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+    background: #7631E6;
+    border: none;
+}
+
+.signup-footer {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 800;  
+}
+
+.signup-footer a {
+    color: #90DD3E;
+    text-decoration: none;
+}
