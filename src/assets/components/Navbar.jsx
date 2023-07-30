@@ -1,14 +1,15 @@
 import '../styles/navbar.css'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
     <div className='navbar'>
         <div className='logo'>
-          <a href="/">BUKDEL</a>
+          <Link to="/">BUKDEL</Link>
         </div>
         <div className='auth'>
             <div>
-              <a href='/login'>Login</a>
+              <Link to='/login'>Login</Link>
             </div>
             <div className='join'>
               <a href='/join'>Sign Up</a>
