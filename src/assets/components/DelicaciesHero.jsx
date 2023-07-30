@@ -1,5 +1,6 @@
 import '../styles/delicacieshero.css';
 import Jollof from '../images/jollof.png'
+import { Link } from 'react-router-dom';
 
 function DelicaciesHero() {
   return (
@@ -11,10 +12,10 @@ function DelicaciesHero() {
             <p>and Ready in 5minutes</p>
             <div className='auth'>
               <div>
-                <a href='/login'>Login</a>
+                <Link to='/login'>Login</Link>
               </div>
               <div className='join'>
-                <a href='/join'>Sign Up</a>
+                <Link to='/join'>Sign Up</Link>
               </div>
         </div>
         </div>

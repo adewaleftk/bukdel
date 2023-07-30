@@ -1,5 +1,6 @@
 import '../styles/hero.css'
 import HeroImage from '../images/heroimage.png'
+import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
@@ -13,10 +14,10 @@ function Hero() {
           </div>
         <div className='auth'>
             <div>
-              <a href='/login'>Login</a>
+              <Link to='/login'>Login</Link>
             </div>
             <div className='join'>
-              <a href='/join'>Sign Up</a>
+              <Link to='/join'>Sign Up</Link>
             </div>
         </div>
         </div>

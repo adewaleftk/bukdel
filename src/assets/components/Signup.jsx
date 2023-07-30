@@ -1,6 +1,7 @@
 import '../styles/signup.css'
 import { useState } from 'react';
 import SignupImage from '../images/signup-image.png';
+import { Link } from 'react-router-dom';
 
 function Signup() {
 
@@ -43,7 +44,7 @@ function Signup() {
     <div className='signup'>
         <div className='signup-box'>
             <div className='logo'>
-            <a href="/">BUKDEL</a>
+            <Link to="/">BUKDEL</Link>
             </div>
             <div className='signup-heading'>
                 <h2>Join Us</h2>

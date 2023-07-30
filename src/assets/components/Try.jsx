@@ -1,5 +1,6 @@
 import '../styles/try.css'
 import Chef from '../images/chef.png'
+import { Link } from 'react-router-dom'
 
 function Try() {
   return (
@@ -35,10 +36,10 @@ function Try() {
                 <div>
                     <div className='auth'>
                         <div>
-                            <a href='/login'>Login</a>
+                            <Link to='/login'>Login</Link>
                         </div>
                         <div className='join'>
-                            <a href='/join'>Sign Up</a>
+                            <Link to='/join'>Sign Up</Link>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import '../styles/different.css'
+import { Link } from 'react-router-dom'
 import Logis from '../images/logis.png'
 
 function Different() {
@@ -32,9 +33,13 @@ function Different() {
                     <p>quality or reliablity</p>
                 </div>
                 <div className='auth'>
-                    <div>Login</div>
-                    <div>Sign Up</div>
-                </div>
+              <div>
+                <Link to='/login'>Login</Link>
+              </div>
+              <div className='join'>
+                <Link to='/join'>Sign Up</Link>
+              </div>
+        </div>
             </div>
             <div className='different-ext'>
                 <div>
