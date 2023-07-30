@@ -12,7 +12,7 @@ function Navbar() {
               <Link to='/login'>Login</Link>
             </div>
             <div className='join'>
-              <a href='/join'>Sign Up</a>
+              <Link to='/join'>Sign Up</Link>
             </div>
         </div>
     </div>

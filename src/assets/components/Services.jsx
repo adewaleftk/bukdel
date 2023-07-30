@@ -3,6 +3,7 @@ import Delicacies from '../images/delicacies.png';
 import Logistics from '../images/logistics.png';
 import Events from '../images/events.png'
 import Drinks from '../images/drinks.png';
+import { Link } from 'react-router-dom';
 
 function Services() {
   return (
@@ -14,14 +15,14 @@ function Services() {
                 <h3>Bukdel Delicacies</h3>
                 <p>Order delicious chef-prepared meals you&apos;ll</p>
                 <p>enjoy and get it delivered on time.</p>
-                <a href='/delicacies'>Get Started &#8594;</a>
+                <Link to='/delicacies'>Get Started &#8594;</Link>
             </div>
             <div>
                 <img src={Logistics} alt="Bukdel Logistics"/>
                 <h3>Bukdel Logistics</h3>
                 <p>Order delicious chef-prepared meals you&apos;ll</p>
                 <p>enjoy and get it delivered on time.</p>
-                <a href='logistics'>Get Started &#8594;</a>
+                <Link to='logistics'>Get Started &#8594;</Link>
             </div>
             <div>
                 <img src={Events} alt="Bukdel Events" />
