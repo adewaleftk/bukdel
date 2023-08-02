@@ -1,3 +1,5 @@
+
+@media only screen and (min-width: 961px) {
 .sendpackage {
     display: flex;
     flex-direction: row;
@@ -37,4 +39,47 @@
     font-size: 35px;
     font-weight: 700;
     color: #FFFFFF;
+}
+}
+
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.sendpackage {
+    display: flex;
+    flex-direction: row;
+    /* height: 500px; */
+    background: #7631E6;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sendpackage ul {
+    list-style-type:square;
+    color: #FFFFFF;
+}
+
+.sendpackage ul li {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px; 
+}
+
+.sendpackage ul p {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500; 
+    margin-top: 5px; 
+}
+
+.sendpackage img {
+    display: none;
+}
+
+.sendpackage h3 {
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
 }

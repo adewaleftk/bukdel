@@ -1,3 +1,115 @@
+@media only screen and (min-width: 301px) and (max-width: 550px) {
+.logisticshero {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin-top: 30px;
+}
+
+.logisticshero-info {
+    width: 100%;
+}
+
+.logisticshero-image {
+    display: none;
+}
+
+/* .logisticshero-image {
+    width: 300px;
+} */
+
+.logisticshero h3 {
+    font-family: Montserrat;
+    font-size: 22px;
+    width: 90vw;
+    font-weight: 700;
+}
+
+.logisticshero-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logisticshero p {
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 500;   
+    margin-top: 10px;
+    width: 90vw;
+}
+
+.logisticshero img:nth-child(1) {
+    position: absolute;
+    z-index: 0;
+}
+
+.logisticshero img:nth-child(2) {
+    position: relative;
+    top: 49%;
+    right: 16%;
+}
+
+.logisticshero img {
+    height: 300px;
+}
+
+.logisticshero-info .auth {
+    margin-top: 20px;
+}
+}
+
+@media only screen and (min-width: 551px) and (max-width: 960px) {
+  .logisticshero {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin-top: 30px;
+}
+
+.logisticshero-info {
+    width: 750px;
+}
+
+.logisticshero-image {
+    width: 300px;
+}
+
+.logisticshero h3 {
+    font-family: Montserrat;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.logisticshero p {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;   
+    margin-top: 10px;
+}
+
+.logisticshero img:nth-child(1) {
+    position: absolute;
+    z-index: 0;
+}
+
+.logisticshero img:nth-child(2) {
+    position: relative;
+    top: 49%;
+    right: 16%;
+}
+
+.logisticshero img {
+    height: 300px;
+}
+
+.logisticshero-info .auth {
+    margin-top: 20px;
+}
+}  
+
+@media only screen and (min-width: 961px) {
 .logisticshero {
     display: flex;
     flex-direction: row;
@@ -43,4 +155,5 @@
 
 .logisticshero-info .auth {
     margin-top: 20px;
+}
 }
