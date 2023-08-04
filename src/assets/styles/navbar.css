@@ -23,7 +23,7 @@
 .auth .join a {
     text-decoration: none;
     color: #7631E6;
-    font-size: 15px;
+    /* font-size: 15px; */
 }
 
 .logo {
@@ -47,7 +47,7 @@
     background: #7631E6;
     color: #ffffff;
     font-family: Montserrat;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0em;   
     display: flex;
@@ -63,7 +63,7 @@
     border: 1px solid #7631E6;
     color: #7631E6;
     font-family: Montserrat;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0em;   
     display: flex;
@@ -71,6 +71,8 @@
     align-items: center;
     width: 70px;
     height: 40px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 }
 
