@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import '../styles/login.css';
 import LoginImage from '../images/login-image.png'
+// import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // const navigate = useNavigate();
   
     const handleEmailChange = (e) => {
       setEmail(e.target.value);
@@ -19,6 +21,7 @@ function Login() {
       // Your login logic here
       console.log('Email:', email);
       console.log('Password:', password);
+      // navigate('/dasboard');
       // You can use this data to authenticate the user or handle the login process.
     };
   
