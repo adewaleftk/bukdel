@@ -126,6 +126,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 .services-heading {
@@ -138,6 +139,7 @@
 .services-info {
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
 }
 
 .services-info div img {
