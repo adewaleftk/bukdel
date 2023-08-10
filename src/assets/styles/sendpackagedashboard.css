@@ -1,0 +1,111 @@
+.send-package-dashboard {
+    display: flex;
+    flex-direction: row;
+}
+
+.send-package-dashboard-body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 75vw;
+    background: #F2F2F2;
+    font-family: Montserrat;
+}
+
+.send-package-dashboard-body > .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.send-package-dashboard-content {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.send-package-dashboard-info {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.send-package-dashboard-info .state--city {
+    display: flex;
+    flex-direction: row;
+}
+
+.send-package-info-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    /* height: 100px; */
+}
+
+.send-package-info-inputs input {
+    height: 50px;
+    border: 2px solid #000000;
+    margin: 5px;
+}
+
+.send-package-info-inputs label {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.send-package-info-inputs select {
+    height: 50px;
+    margin: 5px;
+    border: 2px solid #000000;
+    background: #ffffff;
+}
+
+.state--city {
+    width: 50%;
+}
+
+.send-package-dashboard-save--next {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 45%;
+    margin: 5px 5px 5px 5px;
+    /* border: 1px solid red; */
+}
+
+.send-package-dashboard-save--next label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.send-package-info-inputs-save-address button {
+    width: 100%;
+    background: #7631E6;
+    height: 50px;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.send-package-dashboard-save--next input[type="checkbox"] {
+    height: 15px;
+    background-color: #000000;
+    border: 2px solid green;
+    margin-right: 5px;
+}
+
+#sender-name::placeholder, #pickup-address::placeholder,#sender-number::placeholder,#sender-alt-number::placeholder, #pickup-note::placeholder {
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}

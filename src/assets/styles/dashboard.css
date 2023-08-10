@@ -1,0 +1,149 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-body {
+    background: #F2F2F2;
+    width: 75vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .dashboard-body div:nth-child(1) {
+    margin-left: 10px;
+    border: 1px solid red;
+} */
+
+.dashboard--logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    font-family: Montserrat;
+}
+
+.dashboard--logout a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #7631E6;
+}
+
+h2 {
+    margin-left: 50px;
+    font-family: Montserrat;
+}
+
+.wallet-balance {
+    width: 380px;
+    height: 120px;
+    background: #FFFFFF;
+    margin-left: 20px;
+    font-family: Montserrat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wallet-balance h4 {
+    margin-left: 40px;
+    font-size: 15px;
+}
+
+.wallet-balance button {
+    width: 110px;
+    height: 50px;
+    color: #7631E6;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid #7631E6;
+    outline: none;
+    background: #FFFFFF;
+}
+
+.money {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 30px;
+    font-family: Montserrat;
+    margin-top: 10px;
+}
+
+.order-notifications {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: Montserrat;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    font-family: Montserrat;
+}
+
+.notifications h2 {
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+.notifications-details {
+    display: flex;
+    flex-direction: column;
+    font-family: Montserrat;
+    border-left: 5px solid #7631E6;
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+.notifications-details-info {
+    display: flex;
+    flex-direction: row;
+    font-family: Montserrat;
+    justify-content: space-between;
+}
+
+.notifications-details-info div:nth-child(2) {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.notifications-details-info div:nth-child(1) {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.order-info div:first-child, .order-info div:last-child {
+    background: #FFFFFF;
+    margin-top: 10px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.order-info img {
+    width: 70px;
+}
+
+.order-info div p {
+    font-size: 15px;
+}
+
+.order-info a {
+    text-decoration: none;
+}
+
+.order-info a:hover {
+    background: #faeded;
+    color: #7631E6;
+    height: 100%;
+}
