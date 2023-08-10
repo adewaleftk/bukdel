@@ -1,5 +1,5 @@
 import '../styles/navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -9,7 +9,7 @@ function Navbar() {
         </div>
         <div className='auth'>
             <div>
-              <Link to='/login'>Login</Link>
+              <NavLink to='/login'>Login</NavLink>
             </div>
             <div className='join'>
               <Link to='/join'>Sign Up</Link>
