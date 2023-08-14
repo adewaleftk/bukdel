@@ -31,10 +31,10 @@ function DashboardNav() {
             <img src={Drinks} />
             Drinks
         </a>
-        <a href="#">
+        <NavLink to="/profile-dashboard">
             <img src={Profile} />
             Profile
-        </a>
+        </NavLink>
     </nav>
   )
 }
