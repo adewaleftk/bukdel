@@ -4,31 +4,32 @@ import { NavLink } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import usePackageStore from '../../store';
 
-function SendPackageDashboard() {
+function SendPackageReceiver() {
 
-    
     const navigate = useNavigate();
+    const receiverData = usePackageStore(state => state.receiverData);
+    const setReceiverData = usePackageStore(state => state.setReceiverData);
     const senderData = usePackageStore(state => state.senderData);
     const setSenderData = usePackageStore(state => state.setSenderData);
-    
 
     const handleNextButtonClick = () => {
-
-        navigate('/logistics-dashboard/send/receiver');
+        
+        // Navigate to the next page
+        navigate('/logistics-dashboard/send/review');
     };
     
 
-    const handleSenderStateChange = (event) => {
-        const senderState = event.target.value;
-        setSenderData({ senderState });
-        const senderStateObj = statesAndCities.find(state => state.name === senderState);
+    const handleReceiverStateChange = (event) => {
+        const receiverState = event.target.value;
+        setReceiverData({ receiverState });
+        const receiverStateObj = statesAndCities.find(state => state.name === receiverState);
         
-        const cityDropdown = document.getElementById('sender-city');
+        const cityDropdown = document.getElementById('receiver-city');
         cityDropdown.innerHTML = ''; // Clear previous city options
     
-        if (senderStateObj) {
-            setSenderData({ senderCity: senderStateObj.cities[0] });
-            senderStateObj.cities.forEach(city => {
+        if (receiverStateObj) {
+            setReceiverData({ receiverCity: receiverStateObj.cities[0] });
+            receiverStateObj.cities.forEach(city => {
                 const option = document.createElement('option');
                 option.value = city;
                 option.textContent = city;
@@ -66,31 +67,31 @@ function SendPackageDashboard() {
             </div>
             <h2>Send Packages</h2>
             <div className='send-package-dashboard-content'>
-                <h3>Sender Details</h3>
+                <h3>Receiver Details</h3>
                 <p>Let&apos;s help you retrieve goods or packages at a specific location</p>
                 <div className='send-package-dashboard-info'>
                     <div className='send-package-info-inputs'>
-                        <label htmlFor="sender-name">Name of Sender</label>
-                        <input type="text" id="sender-name" name="senderName" value={senderData.senderName} onChange={(event) => setSenderData({ senderName: event.target.value })} placeholder='Name of Sender' required />
+                        <label htmlFor="receiver-name">Name of Receiver</label>
+                        <input type="text" id="receiver-name" name="receiverName" value={receiverData.receiverName} onChange={(event) => setReceiverData({ receiverName: event.target.value })} placeholder='Name of Receiver' required />
                     </div>
                     <div className='send-package-info-inputs'>
-                        <label htmlFor="pickup-address">Pick-Up Address</label>
-                        <input type="text" id="pickup-address" name="pickupAddress" value={senderData.pickupAddress} onChange={(event) => setSenderData({ pickupAddress: event.target.value })}  placeholder='2, Akintunde Street, Owo Road' required />
+                        <label htmlFor="dropoff-address">Drop-Off Address</label>
+                        <input type="text" id="dropoff-address" name="dropoffAddress" value={receiverData.dropoffAddress} onChange={(event) => setReceiverData({ dropoffAddress: event.target.value })}  placeholder='2, Akintunde Street, Owo Road' required />
                     </div>
                 </div>
                 <div className='send-package-dashboard-info'>
                     <div className='send-package-info-inputs'>
-                        <label htmlFor="sender-number">Sender&apos;s Phone Number</label>
-                        <input type="number" id="sender-number" name="senderNumber" value={senderData.senderNumber} onChange={(event) => setSenderData({ senderNumber: event.target.value })} placeholder='08123456789' required />
+                        <label htmlFor="receiver-number">Receiver&apos;s Phone Number</label>
+                        <input type="number" id="receiver-number" name="receiverNumber" value={receiverData.receiverNumber} onChange={(event) => setReceiverData({ receiverNumber: event.target.value })} placeholder='08123456789' required />
                     </div>
                     <div className='state--city'>
                         <div className='send-package-info-inputs'>
-                            <label htmlFor="sender-state">State</label>
+                            <label htmlFor="receiver-state">State</label>
                             <select
-                                id="sender-state"
-                                name="senderState"
-                                value={senderData.senderState}
-                                onChange={handleSenderStateChange} 
+                                id="receiver-state"
+                                name="receiverState"
+                                value={receiverData.receiverState}
+                                onChange={handleReceiverStateChange}
                                 required
                             >
                                 <option value="">Select a State</option>
@@ -102,8 +103,8 @@ function SendPackageDashboard() {
                             </select>
                         </div>
                         <div className='send-package-info-inputs'>
-                            <label htmlFor="sender-city">City</label>
-                            <select id="sender-city" name="senderCity" value={senderData.senderCity} onChange={(event) => setSenderData({ selectedCity: event.target.value })} required>
+                            <label htmlFor="receiver-city">City</label>
+                            <select id="receiver-city" name="receiverCity" value={receiverData.receiverCity} onChange={(event) => setReceiverData({ receiverCity: event.target.value })} required>
                                 <option value="">Select a City</option>
                                 {/* Dynamically populate the city options based on selected state */}
                             </select>
@@ -112,12 +113,12 @@ function SendPackageDashboard() {
                 </div>
                 <div className='send-package-dashboard-info'>
                     <div className='send-package-info-inputs'>
-                        <label htmlFor="sender-alt-number">Alternative Phone Number</label>
-                        <input type="number" id="sender-alt-number" name="senderAltNumber" value={senderData.senderAltNumber} onChange={(event) => setSenderData({ senderAltNumber: event.target.value })} placeholder='08123456789' required />
+                        <label htmlFor="receiver-alt-number">Alternative Phone Number</label>
+                        <input type="number" id="receiver-alt-number" name="receiverAltNumber" value={receiverData.receiverAltNumber} onChange={(event) => setReceiverData({ receiverAltNumber: event.target.value })} placeholder='08123456789' required />
                     </div>
                     <div className='send-package-info-inputs'>
-                        <label htmlFor="pickup-date">Date of Pick-Up</label>
-                        <input type="date" id="pickup-date" name="pickupDate" value={senderData.pickupDate} onChange={(event) => setSenderData({ pickupDate: event.target.value })} required />
+                        <label htmlFor="delivery-date">Date of Delivery</label>
+                        <input type="date" id="delivery-date" name="deliveryDate" value={receiverData.deliveryDate} onChange={(event) => setReceiverData({ deliveryDate: event.target.value })} required />
                     </div>
                 </div>
                 <div className='send-package-dashboard-info'>
@@ -129,8 +130,8 @@ function SendPackageDashboard() {
                         </select>
                     </div>
                     <div className='send-package-info-inputs'>
-                        <label htmlFor="pickup-note">Pick-Up Note</label>
-                        <input type="text" id="pickup-note" name="pickupNote" value={senderData.pickupNote} onChange={(event) => setSenderData({ pickupNote: event.target.value })} placeholder='e.g Package is with my Gateman' required />
+                        <label htmlFor="dropoff-note">Drop-Off Note</label>
+                        <input type="text" id="dropoff-note" name="dropoffNote" value={receiverData.dropoffNote} onChange={(event) => setReceiverData({ dropoffNote: event.target.value })} placeholder='e.g Package is with my Gateman' required />
                     </div>
                 </div>
                 <div className='send-package-dashboard-info'>
@@ -144,7 +145,7 @@ function SendPackageDashboard() {
                     </div>
                     <div className='send-package-dashboard-save--next'>
                         <div className='send-package-info-inputs-save--address'>
-                            <input type="checkbox" id="save-sender-address" name="saveSenderAddress" value={senderData.saveSenderAddress} onChange={(event) => setSenderData({ saveSenderAddress: event.target.checked })} />
+                            <input type="checkbox" id="save-receiver-address" name="saveReceiverAddress" value={receiverData.saveReceiverAddress} onChange={(event) => setReceiverData({ saveReceiverAddress: event.target.checked })} />
                             <label htmlFor="save-address">Save Address</label>
                         </div>
                         <div className='send-package-info-inputs-save-address'>
@@ -158,4 +159,4 @@ function SendPackageDashboard() {
   )
 }
 
-export default SendPackageDashboard
+export default SendPackageReceiver

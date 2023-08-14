@@ -14,6 +14,8 @@ import Checkout from "./assets/pages/Checkout"
 import PaymentMethod from "./assets/pages/PaymentMethod"
 import SendPackageDashboard from "./assets/pages/SendPackageDashboard"
 import SendPackageReview from "./assets/pages/SendPackageReview"
+import SendPackageReceiver from "./assets/pages/SendPackageReceiver"
+import ProceedToPay from "./assets/pages/ProceedToPay"
 
 function App() {
 
@@ -30,7 +32,9 @@ function App() {
         <Route path="/delicacies-dashboard" element={<DelicaciesDashboard />} />
         <Route path="/logistics-dashboard" element={<LogisticsDashboard />} />
         <Route path="/logistics-dashboard/send" element={<SendPackageDashboard />} />
+        <Route path="/logistics-dashboard/send/receiver" element={<SendPackageReceiver />} />
         <Route path="/logistics-dashboard/send/review" element={<SendPackageReview />} />
+        <Route path="/logistics-dashboard/send/review/pay" element={<ProceedToPay />} />
         <Route path="/delicacies-dashboard/orderfood-dashboard" element={<OrderFood />} />
         <Route path="/delicacies-dashboard/orderfood-dashboard/purchase" element={<PurchaseCart />} />
         <Route path="/delicacies-dashboard/orderfood-dashboard/purchase/checkout" element={<Checkout />} />
