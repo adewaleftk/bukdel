@@ -21,7 +21,7 @@ function Profile() {
                     <NavLink to="/">Log Out</NavLink>
                 </div>
             </div>
-            <p>Profile</p>
+            <p className='main-heading'>Profile</p>
             <div className='personal-information'>
                 <div className='profile-picture'>
                     <img src={ProfilePicture} />
