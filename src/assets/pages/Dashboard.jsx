@@ -38,10 +38,12 @@ function Dashboard() {
                         </NavLink>
                     </div>
                     <div>
-                        <img src={SendPackages} />
-                        <h3>Send Packages</h3>
-                        <p>Book or Request a delivery ride and get a rider assigned in less</p>
-                        <p>than 24 hours</p>
+                        <NavLink to="/logistics-dashboard/send">
+                            <img src={SendPackages} />
+                            <h3>Send Packages</h3>
+                            <p>Book or Request a delivery ride and get a rider assigned in less</p>
+                            <p>than 24 hours</p>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="notifications">
