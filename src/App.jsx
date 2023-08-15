@@ -18,6 +18,7 @@ import SendPackageReceiver from "./assets/pages/SendPackageReceiver"
 import ProceedToPay from "./assets/pages/ProceedToPay"
 import Profile from "./assets/pages/Profile"
 import GetEstimate from "./assets/pages/GetEstimate"
+import PackageHistory from "./assets/pages/PackageHistory"
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/profile-dashboard" element={<Profile />} />
         <Route path="/logistics-dashboard/get-estimate" element={<GetEstimate />} />
         <Route path="/logistics-dashboard/send" element={<SendPackageDashboard />} />
+        <Route path="/logistics-dashboard/package-history" element={<PackageHistory />} />
         <Route path="/logistics-dashboard/send/receiver" element={<SendPackageReceiver />} />
         <Route path="/logistics-dashboard/send/review" element={<SendPackageReview />} />
         <Route path="/logistics-dashboard/send/review/pay" element={<ProceedToPay />} />

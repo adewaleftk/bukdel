@@ -46,9 +46,11 @@ function LogisticsDashboard() {
                     </NavLink>
                 </div>
                 <div>
-                    <img src={PackageHistory} />
-                    <h3>Package History</h3>
-                    <p>Easily view your past orders on our Package History Page</p>
+                    <NavLink to="/logistics-dashboard/package-history">
+                        <img src={PackageHistory} />
+                        <h3>Package History</h3>
+                        <p>Easily view your past orders on our Package History Page</p>
+                    </NavLink>
                 </div>
             </div>
         </div>
