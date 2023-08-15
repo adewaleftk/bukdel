@@ -17,6 +17,7 @@ import SendPackageReview from "./assets/pages/SendPackageReview"
 import SendPackageReceiver from "./assets/pages/SendPackageReceiver"
 import ProceedToPay from "./assets/pages/ProceedToPay"
 import Profile from "./assets/pages/Profile"
+import GetEstimate from "./assets/pages/GetEstimate"
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/delicacies-dashboard" element={<DelicaciesDashboard />} />
         <Route path="/logistics-dashboard" element={<LogisticsDashboard />} />
         <Route path="/profile-dashboard" element={<Profile />} />
+        <Route path="/logistics-dashboard/get-estimate" element={<GetEstimate />} />
         <Route path="/logistics-dashboard/send" element={<SendPackageDashboard />} />
         <Route path="/logistics-dashboard/send/receiver" element={<SendPackageReceiver />} />
         <Route path="/logistics-dashboard/send/review" element={<SendPackageReview />} />

@@ -1,4 +1,3 @@
-// store.js
 import create from 'zustand';
 
 const usePackageStore = create((set) => ({
@@ -28,6 +27,18 @@ const usePackageStore = create((set) => ({
     // itemSize: '',
     saveReceiverAddress: false,
   },
+  estimateData: {
+    estimatePickupAddress: '',
+    estimateItemCategory: '',
+    estimatePickupState: '',
+    estimatePickupCity: '',
+    estimateItemSize: '',
+    estimateDropoffAddress: '',
+    estimateDeliveryDate: '',
+    estimateDropoffState: '',
+    estimateDropoffCity: '',
+  },
+  setEstimateData: (newEstimateData) => set((state) => ({ estimateData: { ...state.estimateData, ...newEstimateData } })),
   setSenderData: (newSenderData) => set((state) => ({ senderData: { ...state.senderData, ...newSenderData } })),
   setReceiverData: (newReceiverData) => set((state) => ({ receiverData: { ...state.receiverData, ...newReceiverData } })),
 }));

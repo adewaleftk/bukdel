@@ -38,10 +38,12 @@ function LogisticsDashboard() {
             </div>
             <div className='logistics-estimate'>
                 <div>
-                    <img src={GetEstimate} />
-                    <h3>Get Estimates</h3>
-                    <p>Choose your pick-up and drop-off locations to get an estimate</p>
-                    <p>cost for your delivery at the most competitive rates</p>
+                    <NavLink to="/logistics-dashboard/get-estimate">
+                        <img src={GetEstimate} />
+                        <h3>Get Estimates</h3>
+                        <p>Choose your pick-up and drop-off locations to get an estimate</p>
+                        <p>cost for your delivery at the most competitive rates</p>
+                    </NavLink>
                 </div>
                 <div>
                     <img src={PackageHistory} />

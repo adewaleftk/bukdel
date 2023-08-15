@@ -45,6 +45,18 @@ h2 {
     height: 100%;
 }
 
+.logistics-estimate a {
+    text-decoration: none;
+    color: #000000;
+
+}
+
+.logistics-estimate a:hover {
+    background: #faeded;
+    color: #7631E6;
+    height: 100%;
+}
+
 .logistics-send {
     display: flex;
     flex-direction: row;
