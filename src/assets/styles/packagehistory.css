@@ -1,0 +1,78 @@
+.package-history {
+    display: flex;
+    flex-direction: row;
+    font-family: Montserrat;
+}
+
+.package-history-body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 75vw;
+    background: #F2F2F2;
+}
+
+.package-history-body .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.package-history-body .heading a {
+    color: #7631E6;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.package-history--content {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    margin: 20px;
+    padding: 20px;
+}
+
+.package-history--contents {
+    border: 2px solid #7631E6;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 48%;
+    font-size: 16px;
+    font-weight: 500;
+    height: 70px;
+}
+
+.package-history--contents-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.package-history--contents button {
+    background: #ffffff;
+    border: 2px solid #7631E6;
+    width: 17%;
+    height: 40px;
+}
+
+.package-history-topic {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.package-history--heading {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.package-history--sub-heading {
+    font-size: 20px;
+    font-weight: 500;
+}

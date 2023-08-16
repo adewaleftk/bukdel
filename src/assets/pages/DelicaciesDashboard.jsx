@@ -31,8 +31,8 @@ function DelicaciesDashboard() {
                     <NavLink to="/delicacies-dashboard/orderfood-dashboard">
                         <img src={OrderFood} />
                         <h3>Order food</h3>
-                        <p>Book or Request your food and get it delivered to you in less</p>
-                        <p>than 24 hours</p>
+                        <p>Book or Request your food and get it delivered to you in</p>
+                        <p>less than 24 hours</p>
                     </NavLink>
                 </div>
                 <div>
@@ -46,8 +46,8 @@ function DelicaciesDashboard() {
                 <div>
                     <img src={Start} />
                     <h3>Start a Food Plan</h3>
-                    <p>Customize and plan your food options for a month and let us</p>
-                    <p>handle it for you</p>
+                    <p>Customize and plan your food options for a month and</p>
+                    <p>let us handle it for you</p>
                 </div>
                 <div>
                     <img src={Manage} />

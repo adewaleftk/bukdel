@@ -74,6 +74,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     font-family: Montserrat;
+    padding: 10px;
 }
 
 .delicacies-order div h3 {
@@ -100,6 +101,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     font-family: Montserrat;
+    padding: 10px;
 }
 
 .food-plan div img {
