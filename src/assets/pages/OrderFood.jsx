@@ -28,11 +28,12 @@ function OrderFood() {
                     <NavLink to="/delicacies-dashboard">Delicacies &gt; Order Food</NavLink>
                 </div>
                 <div className='heading-cart'>
-                    <div>
+                    <div className='cart-group'>
                       <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">
-                        <img src={Cart} /> {cartItems.length > 0 && <span className='cart-count'>{cartItems.length}</span>}
-                        Cart
+                        <img src={Cart} className="cart-image" /> {cartItems.length > 0 && <span className='cart-count'>{cartItems.length}</span>}
+                        
                       </NavLink>
+                      <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">Cart</NavLink>
                     </div>
                     <div>
                         <NavLink to="/">Log Out</NavLink>

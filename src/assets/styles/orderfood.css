@@ -18,6 +18,12 @@
     align-items: center;
 }
 
+.cart-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .heading-cart div:nth-child(1) {
     margin-right: 20px;
 }
@@ -128,12 +134,20 @@ a {
 /* Add this to your existing CSS file */
 .cart-count {
     /* position: absolute; */
-    top: -10px;
-    right: -10px;
+    /* top: -10px;
+    right: -10px; */
     background-color: red;
     color: white;
     border-radius: 50%;
     padding: 4px 8px;
     font-size: 12px;
-  }
+    margin-left: -20px;
+    /* margin-top: -5px; */
+}
+
+.cart-image {
+    /* height: 50px; */
+    width: 40px;
+    margin-top: 10px;
+}
   
