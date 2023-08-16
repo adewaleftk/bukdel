@@ -3,8 +3,22 @@ import DashboardNav from '../components/DashboardNav'
 import { NavLink } from 'react-router-dom'
 import Cart from '../images/cart.png'
 import Spaghetti from '../images/spaghetti.png'
+import usePackageStore from '../../store'
 
 function OrderFood() {
+  const addToCart = usePackageStore((state) => state.addToCart);
+  const cartItems = usePackageStore((state) => state.cartItems);
+
+  const foodItems = [
+    // List of food items with their details
+    { name: 'Spaghetti', price: 2000, image: Spaghetti },
+    { name: 'Fanta', price: 500, image:Spaghetti },
+    { name: 'Jollof Rice', price: 3000, image:Spaghetti },
+    { name: 'Fried Rice', price: 3500, image:Spaghetti },
+    
+    // ... other food items
+  ];
+
   return (
     <div className='orderfood'>
       <DashboardNav />
@@ -15,7 +29,10 @@ function OrderFood() {
                 </div>
                 <div className='heading-cart'>
                     <div>
-                      <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase"><img src={Cart} />Cart</NavLink>
+                      <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">
+                        <img src={Cart} /> {cartItems.length > 0 && <span className='cart-count'>{cartItems.length}</span>}
+                        Cart
+                      </NavLink>
                     </div>
                     <div>
                         <NavLink to="/">Log Out</NavLink>
@@ -33,7 +50,48 @@ function OrderFood() {
                   <div>Pasta and Grains</div>
                 </div>
               </div>
-              <div className='foods'>
+              {/* <div className='foods'>
+                <div>
+                  <img src={Spaghetti} />
+                  <p>Spaghetti</p>
+                  <p>&#8358;1500</p>
+                </div>
+                <div>
+                <img src={Spaghetti} />
+                  <p>Spaghetti</p>
+                  <p>&#8358;1500</p>
+                </div>
+                <div>
+                <img src={Spaghetti} />
+                  <p>Spaghetti</p>
+                  <p>&#8358;1500</p>
+                </div>
+                <div>
+                <img src={Spaghetti} />
+                  <p>Spaghetti</p>
+                  <p>&#8358;1500</p>
+                </div>
+                <div>
+                <img src={Spaghetti} />
+                  <p>Spaghetti</p>
+                  <p>&#8358;1500</p>
+                </div>
+                <div>
+                <img src={Spaghetti} />
+                  <p>Spaghetti</p>
+                  <p>&#8358;1500</p>
+                </div>
+              </div> */}
+            <div className='foods'>
+              {foodItems.map((food, index) => (
+              <div key={index} onClick={() => addToCart(food)}>
+                <img src={food.image} alt={food.name} />
+                <p>{food.name}</p>
+                <p>&#8358;{food.price}</p>
+              </div>
+            ))}
+          </div>
+              {/* <div className='foods'>
                 <div>
                   <img src={Spaghetti} />
                   <p>Spaghetti</p>
@@ -96,40 +154,10 @@ function OrderFood() {
                   <p>Spaghetti</p>
                   <p>&#8358;1500</p>
                 </div>
-              </div>
-              <div className='foods'>
-                <div>
-                  <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-              </div>
+              </div> */}
+              
             </div>
+
       </div>
     </div>
   )

@@ -1,37 +1,20 @@
 import '../styles/purchasecart.css'
 import DashboardNav from '../components/DashboardNav'
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
 import Cart from '../images/cart.png'
 import Delete from '../images/delete-icon.png'
 import MiniSpag from '../images/spaghetti-icon.png'
+import usePackageStore from '../../store';
 
 const PurchaseCart = () => {
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Spaghetti', unitPrice: 1500, quantity: 2 },
-    { id: 2, name: 'Jollof Rice', unitPrice: 1500, quantity: 1 },
-    { id: 3, name: 'Fanta', unitPrice: 200, quantity: 2 },
-    { id: 2, name: 'Jollof Rice', unitPrice: 1500, quantity: 1 },
-    { id: 3, name: 'Fanta', unitPrice: 200, quantity: 2 },
-    // ... other cart items
-  ]);
 
-  const removeCartItem = (itemId) => {
-    const updatedCart = cartItems.filter(item => item.id !== itemId);
-    setCartItems(updatedCart);
-  };
-
-  const updateQuantity = (itemId, newQuantity) => {
-    if (newQuantity >= 0) {
-      const updatedCart = cartItems.map(item =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      );
-      setCartItems(updatedCart);
-    }
-  };  
+  const increaseQuantity = usePackageStore(state => state.increaseQuantity);
+  const decreaseQuantity = usePackageStore(state => state.decreaseQuantity);
+  const cartItems = usePackageStore((state) => state.cartItems);
+  const removeFromCart = usePackageStore(state => state.removeFromCart);
 
   const subTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
-  const deliveryFee = 5;
+  const deliveryFee = "";
   const totalAmount = subTotal + deliveryFee;
 
   return (
@@ -61,15 +44,15 @@ const PurchaseCart = () => {
                     <div>Total Price(&#8358;)</div>
                     <div>Action</div>
                 </div>
-                {cartItems.map(item => (
-                    <div key={item.id} className="cart-item">
+                {cartItems.map((item, index) => (
+                    <div key={index} className="cart-item">
                         <div><span className='item-name'><img src={MiniSpag} />{item.name}</span></div>
-                        <div><span>&#8358;{item.unitPrice}</span></div>
-                        <div className='toggle-quantity'><button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+                        <div><span>&#8358;{item.price}</span></div>
+                        <div className='toggle-quantity'><button  onClick={() => decreaseQuantity(item)}>-</button>
                         <span>{item.quantity}</span>
-                        <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button></div>
-                        <div><span>&#8358;{item.unitPrice * item.quantity}</span></div>
-                        <div><button onClick={() => removeCartItem(item.id)}><img src={Delete} /></button></div>
+                        <button  onClick={() => increaseQuantity(item)}>+</button></div>
+                        <div><span>&#8358;{item.total}</span></div>
+                        <div><button onClick={() => removeFromCart(item)}><img src={Delete} /></button></div>
                     </div>
                 ))}
                 <div className='total-buttons'>
