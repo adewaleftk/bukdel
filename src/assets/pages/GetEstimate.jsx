@@ -3,12 +3,22 @@ import DashboardNav from '../components/DashboardNav'
 import { NavLink } from 'react-router-dom'
 import usePackageStore from '../../store'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Cancel from '../images/cancel.png'
 
 function GetEstimate() {
     const [showPopup, setShowPopup] = useState(false);
     const estimateData = usePackageStore(state => state.estimateData);
     const setEstimateData = usePackageStore(state => state.setEstimateData);
+
+    const logout = usePackageStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
 
     const handleProceedToGetEstimate = () => {
         setShowPopup(true);
@@ -83,7 +93,7 @@ function GetEstimate() {
                 </div>
                 <div className='heading--logout'>
                     <div>
-                        <NavLink to="/">Log Out</NavLink>
+                        <button onClick={handleLogout}>Log Out</button>
                     </div>
                 </div>
             </div>

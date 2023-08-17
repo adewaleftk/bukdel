@@ -9,7 +9,8 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 20px;
+    /* justify-content: center; */
 }
 
 /* .dashboard-body div:nth-child(1) {
@@ -21,9 +22,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 50px;
+    /* margin-left: 50px;
     margin-right: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; */
     font-family: Montserrat;
 }
 
@@ -34,29 +35,40 @@
     color: #7631E6;
 }
 
-h2 {
-    margin-left: 50px;
+.dashboard--heading {
+    /* margin-left: 50px; */
     font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 700;
 }
 
 .wallet-balance {
-    width: 380px;
-    height: 120px;
+    width: 48%;
+    height: 20%;
+    margin-bottom: 20px;
+    padding: 10px;
     background: #FFFFFF;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     font-family: Montserrat;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.wallet-balance h4 {
-    margin-left: 40px;
+.wallet-balance .wallet-balance--heading {
+    /* margin-left: 40px; */
     font-size: 15px;
+    font-weight: 700;
+}
+
+.wallet-balance .amount {
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .wallet-balance button {
-    width: 110px;
+    width: 40%;
     height: 50px;
     color: #7631E6;
     font-size: 16px;
@@ -75,10 +87,14 @@ h2 {
     margin-top: 10px;
 }
 
+.order-info {
+    width: 48%;
+}
+
 .order-notifications {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     font-family: Montserrat;
 }
 
@@ -87,6 +103,8 @@ h2 {
     flex-direction: column;
     background: #FFFFFF;
     font-family: Montserrat;
+    width: 48%;
+    padding: 10px;
 }
 
 .notifications h2 {
@@ -122,7 +140,7 @@ h2 {
 
 .order-info div:first-child, .order-info div:last-child {
     background: #FFFFFF;
-    margin-top: 10px;
+    margin-bottom: 10px;
     height: 180px;
     display: flex;
     justify-content: center;
@@ -140,6 +158,7 @@ h2 {
 
 .order-info a {
     text-decoration: none;
+    color: #000000;
 }
 
 .order-info a:hover {

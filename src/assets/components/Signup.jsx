@@ -2,6 +2,7 @@ import '../styles/signup.css'
 import { useState } from 'react';
 import SignupImage from '../images/signup-image.png';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
 
@@ -10,6 +11,7 @@ function Signup() {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhonenumber] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
   
     const handleFirstnameChange = (e) => {
       setFirstName(e.target.value);
@@ -31,13 +33,44 @@ function Signup() {
         setPassword(e.target.value);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Your login logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
-        // You can use this data to authenticate the user or handle the login process.
-      };
+    async function handleSignUpSubmit(event) {
+        event.preventDefault();
+
+        const baseUrl = 'https://bukdelbe.vercel.app'; // Replace with your base URL
+        const apiUrl = `${baseUrl}/api/v1/auth/register`;
+
+        const requestData = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+                first_name: firstName,
+                last_name: lastName,
+                phone: phoneNumber,
+            }),
+        };
+
+        try {
+            const response = await fetch(apiUrl, requestData);
+            const responseData = await response.json();
+
+            if (response.ok && responseData.status === true) {
+                // Signup successful
+                console.log('Signup successful:', responseData.message);
+                navigate('/login');
+            } else {
+                // Signup failed, handle the error scenario
+                console.error('Signup failed:', responseData.message);
+                // Display an error message to the user
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+            // Handle any unexpected errors
+        }
+    }
 
   return (
     
@@ -50,7 +83,7 @@ function Signup() {
                 <h2>Join Us</h2>
                 <p>Create an account</p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div className='signup-first-last'>
                     <div>
                     <p><label htmlFor="firstName">First Name</label></p>
@@ -109,7 +142,7 @@ function Signup() {
                     /> 
                 </div>
                 <div>
-                    <button type="submit" id='submit' >Create Account</button>
+                    <button type="submit" id='submit' onClick={handleSignUpSubmit} >Create Account</button>
                 </div>
             </form>
             <div className='signup-footer'>

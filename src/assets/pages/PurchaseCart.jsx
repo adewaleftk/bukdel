@@ -5,6 +5,7 @@ import Cart from '../images/cart.png'
 import Delete from '../images/delete-icon.png'
 import MiniSpag from '../images/spaghetti-icon.png'
 import usePackageStore from '../../store';
+import { useNavigate } from 'react-router-dom';
 
 const PurchaseCart = () => {
 
@@ -16,6 +17,15 @@ const PurchaseCart = () => {
   const subTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
   const deliveryFee = "";
   const totalAmount = subTotal + deliveryFee;
+
+  const logout = usePackageStore(state => state.logout);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout(); 
+    navigate('/');
+  };
+
 
   return (
     <div className="purchase-cart">
@@ -30,7 +40,7 @@ const PurchaseCart = () => {
                         <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase"><img src={Cart} />Cart</NavLink>
                     </div>
                     <div>
-                        <NavLink to="/">Log Out</NavLink>
+                        <button onClick={handleLogout}>Log Out</button>
                     </div>
                 </div>
             </div>

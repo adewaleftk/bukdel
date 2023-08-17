@@ -2,35 +2,19 @@ import '../styles/checkout.css'
 import DashboardNav from '../components/DashboardNav'
 import { NavLink } from 'react-router-dom'
 import Cart from '../images/cart.png'
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import usePackageStore from '../../store'
 
 function Checkout() {
-    const [cartItems, setCartItems] = useState([
-        { id: 1, name: 'Spaghetti', unitPrice: 1500, quantity: 2 },
-        { id: 2, name: 'Jollof Rice', unitPrice: 1500, quantity: 1 },
-        { id: 3, name: 'Fanta', unitPrice: 200, quantity: 2 },
-        { id: 2, name: 'Jollof Rice', unitPrice: 1500, quantity: 1 },
-        { id: 3, name: 'Fanta', unitPrice: 200, quantity: 2 },
-        // ... other cart items
-      ]);
-    
-      const removeCartItem = (itemId) => {
-        const updatedCart = cartItems.filter(item => item.id !== itemId);
-        setCartItems(updatedCart);
-      };
-    
-      const updateQuantity = (itemId, newQuantity) => {
-        if (newQuantity >= 0) {
-          const updatedCart = cartItems.map(item =>
-            item.id === itemId ? { ...item, quantity: newQuantity } : item
-          );
-          setCartItems(updatedCart);
-        }
-      };  
-    
-      const subTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
-      const deliveryFee = 5;
-      const totalAmount = subTotal + deliveryFee;
+    const logout = usePackageStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
+ 
   return (
     <div className='checkout'>
         <DashboardNav />
@@ -44,7 +28,7 @@ function Checkout() {
                         <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase"><img src={Cart} />Cart</NavLink>
                     </div>
                     <div>
-                        <NavLink to="/">Log Out</NavLink>
+                        <button onClick={handleLogout}>Log Out</button>
                     </div>
                 </div>
             </div>
@@ -76,9 +60,9 @@ function Checkout() {
                 </div>
                 <div className='total-buttons'>
                     <div className="total">
-                        <span>Sub-Total: &#8358;{subTotal}</span>
-                        <span>Delivery Fee: &#8358;{deliveryFee}</span>
-                        <span>Total Amount: &#8358;{totalAmount}</span>
+                        <span>Sub-Total: &#8358;</span>
+                        <span>Delivery Fee: &#8358;</span>
+                        <span>Total Amount: &#8358;</span>
                     </div>
                     <div className="buttons">
                         <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">Back</NavLink>

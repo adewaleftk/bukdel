@@ -12,6 +12,14 @@ function SendPackageReceiver() {
     const senderData = usePackageStore(state => state.senderData);
     const setSenderData = usePackageStore(state => state.setSenderData);
 
+    const logout = usePackageStore(state => state.logout);
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
+
     const handleNextButtonClick = () => {
         
         // Navigate to the next page
@@ -61,7 +69,7 @@ function SendPackageReceiver() {
                 </div>
                 <div className='heading-cart'>
                     <div>
-                        <NavLink to="/">Log Out</NavLink>
+                        <button onClick={handleLogout}>Log Out</button>
                     </div>
                 </div>
             </div>

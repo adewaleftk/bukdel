@@ -5,8 +5,19 @@ import Send from '../images/sendpackages-icon.png'
 import TrackPackage from '../images/trackpackage-icon.png'
 import GetEstimate from '../images/getestimate-icon.png'
 import PackageHistory from '../images/packagehistory-icon.png'
+import { useNavigate } from 'react-router-dom'
+import usePackageStore from '../../store'
 
 function LogisticsDashboard() {
+
+    const logout = usePackageStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
   return (
     <div className='logistics-dashboard'>
       <DashboardNav />
@@ -16,10 +27,10 @@ function LogisticsDashboard() {
                     <NavLink to="/logistics-dashboard">Logistics</NavLink>
                 </div>
                 <div>
-                      <NavLink to="/">Log Out</NavLink>
+                      <button onClick={handleLogout}>Log Out</button>
                 </div>
             </div>
-            <h2>Logistics</h2>
+            <p className='logistics--heading'>Logistics</p>
             <div className='logistics-send'>
                 <div>
                     <NavLink to="/logistics-dashboard/send">

@@ -1,0 +1,139 @@
+.start-food-plan {
+    display: flex;
+    flex-direction: row;
+    font-family: Montserrat;
+}
+
+.start-food-plan--body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 75vw;
+    background: #F2F2F2;
+}
+
+.start-food-plan--body .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.start-food-heading-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-food-plan-cart-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.start-food-plan--body .heading a {
+    font-size: 20px;
+    font-weight: 600;
+    color: #7631E6;
+}
+
+.start-food-plan--topic {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.start-food-plan--content {
+    margin: 10px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.start-food-plan--content-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.start-food-plan--content-group .day-group {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.day-group-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #C3B5B5;
+    padding: 2px;
+}
+
+.day-group-info button {
+    background: #ffffff;
+    border: 2px solid #7631E6;
+    width: 20%;
+    height: 65%;
+}
+
+.food-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.day-heading {
+    background: #7631E6;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.main-food {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.food-topping {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.food-menu img {
+    height: 40px;
+}
+
+.pay-group {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.pay-group button:nth-child(2) {
+    border: none;
+    background: #7631E6;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    height: 30px;
+}
+
+.pay-group button:nth-child(3) {
+    background: #ffffff;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 2px solid #7631E6;
+}

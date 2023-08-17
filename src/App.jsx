@@ -19,6 +19,7 @@ import ProceedToPay from "./assets/pages/ProceedToPay"
 import Profile from "./assets/pages/Profile"
 import GetEstimate from "./assets/pages/GetEstimate"
 import PackageHistory from "./assets/pages/PackageHistory"
+import StartFoodPlan from "./assets/pages/StartFoodPlan"
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/delicacies-dashboard" element={<DelicaciesDashboard />} />
+        <Route path="/delicacies-dashboard/start-food-plan" element={<StartFoodPlan />} />
         <Route path="/logistics-dashboard" element={<LogisticsDashboard />} />
         <Route path="/profile-dashboard" element={<Profile />} />
         <Route path="/logistics-dashboard/get-estimate" element={<GetEstimate />} />

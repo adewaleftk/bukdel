@@ -10,6 +10,13 @@ function SendPackageDashboard() {
     const navigate = useNavigate();
     const senderData = usePackageStore(state => state.senderData);
     const setSenderData = usePackageStore(state => state.setSenderData);
+    const logout = usePackageStore(state => state.logout);
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
     
 
     const handleNextButtonClick = () => {
@@ -25,7 +32,6 @@ function SendPackageDashboard() {
         
         const cityDropdown = document.getElementById('sender-city');
         cityDropdown.innerHTML = ''; // Clear previous city options
-    
         if (senderStateObj) {
             setSenderData({ senderCity: senderStateObj.cities[0] });
             senderStateObj.cities.forEach(city => {
@@ -60,7 +66,7 @@ function SendPackageDashboard() {
                 </div>
                 <div className='heading-cart'>
                     <div>
-                        <NavLink to="/">Log Out</NavLink>
+                        <button onClick={handleLogout}>Log Out</button>
                     </div>
                 </div>
             </div>

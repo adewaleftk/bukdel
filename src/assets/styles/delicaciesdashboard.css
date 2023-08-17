@@ -9,17 +9,17 @@
     height: 100vh;
     width: 75vw;
     background: #F2F2F2;
-    justify-content: center;
+    /* justify-content: center; */
     /* align-items: center; */
 }
 
 .delicacies-dashboard-body .heading {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin-left: -200px;
-    font-family: Montserrat;
-    margin-bottom: 120px;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 40px 40px 40px;
 }
 
 .delicacies-dashboard-body .heading a {
@@ -29,8 +29,10 @@
     color: #7631E6;
 }
 
-h2 {
-    margin-top: 20px;
+.delicacy---heading {
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 40px;
 }
 
 .delicacies-dashboard-body .heading .heading-cart{
@@ -46,10 +48,9 @@ h2 {
     /* justify-content: space-around; */
 }
 
-.delicacies-order a {
+.delicacies-order a, .food-plan a {
     text-decoration: none;
     color: #000000;
-
 }
 
 .delicacies-order a:hover {
@@ -116,4 +117,10 @@ h2 {
 .food-plan div p {
     font-size: 15px;
     font-weight: 500;
+}
+
+.food-plan a:hover {
+    background: #7631E6;
+    color: #ffffff;
+    height: 100%;
 }

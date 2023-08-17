@@ -2,8 +2,19 @@ import '../styles/packagehistory.css'
 import DashboardNav from '../components/DashboardNav'
 import { NavLink } from 'react-router-dom'
 import Vector from '../images/vector.png'
+import { useNavigate } from 'react-router-dom'
+import usePackageStore from '../../store'
 
 function PackageHistory() {
+
+    const logout = usePackageStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
   return (
     <div className='package-history'>
         <DashboardNav />
@@ -14,7 +25,7 @@ function PackageHistory() {
                 </div>
                 <div className='heading--logout'>
                     <div>
-                        <NavLink to="/">Log Out</NavLink>
+                       <button onClick={handleLogout}>Log Out</button>
                     </div>
                 </div>
             </div>

@@ -96,6 +96,12 @@ const usePackageStore = create((set) => ({
     estimateDropoffState: '',
     estimateDropoffCity: '',
   },
+
+  isLoggedIn: false,
+  userToken: null,
+  login: (token) => set({ isLoggedIn: true, userToken: token }),
+  logout: () => set({ isLoggedIn: false, userToken: null }),
+
   setEstimateData: (newEstimateData) => set((state) => ({ estimateData: { ...state.estimateData, ...newEstimateData } })),
   setSenderData: (newSenderData) => set((state) => ({ senderData: { ...state.senderData, ...newSenderData } })),
   setReceiverData: (newReceiverData) => set((state) => ({ receiverData: { ...state.receiverData, ...newReceiverData } })),

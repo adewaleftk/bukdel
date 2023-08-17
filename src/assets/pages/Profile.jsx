@@ -7,8 +7,19 @@ import SavedAddresses from '../images/saved-addresses.png'
 import ChangePassword from '../images/change-password.png'
 import OrderHistory from '../images/order-history.png'
 import Refer from '../images/refer.png'
+import { useNavigate } from 'react-router-dom'
+import usePackageStore from '../../store'
 
 function Profile() {
+    const logout = usePackageStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
+
   return (
     <div className='profile'>
         <DashboardNav />
@@ -18,7 +29,7 @@ function Profile() {
                     <NavLink to="/profile-dashboard">Profile</NavLink>
                 </div>
                 <div>
-                    <NavLink to="/">Log Out</NavLink>
+                    <button onClick={handleLogout}>Log Out</button>
                 </div>
             </div>
             <p className='main-heading'>Profile</p>

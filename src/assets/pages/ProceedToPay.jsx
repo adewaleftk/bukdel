@@ -2,12 +2,21 @@ import '../styles/proceedtopay.css'
 import DashboardNav from '../components/DashboardNav'
 import Cancel from '../images/cancel.png'
 import { useNavigate } from 'react-router-dom'
+// import usePackageStore from '../../store'
 
 function ProceedToPay() {
     const navigate = useNavigate();
     function handleBackClick() {
         navigate('/logistics-dashboard/send/review');
     }
+
+    // const logout = usePackageStore(state => state.logout);
+
+    // const handleLogout = () => {
+    //   logout(); 
+    //   navigate('/');
+    // };
+
   return (
     <div className='proceed--to-pay'>
         <DashboardNav />

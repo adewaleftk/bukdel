@@ -3,12 +3,32 @@ import '../styles/dashboard.css'
 import OrderFood from '../images/orderfood-icon.png'
 import SendPackages from '../images/sendpackages-icon.png'
 import { NavLink } from "react-router-dom"
+import usePackageStore from "../../store"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 
 function Dashboard() {
+    const isLoggedIn = usePackageStore(state => state.isLoggedIn);
+    const navigate = useNavigate();
+    const logout = usePackageStore(state => state.logout);
 
-    function addMoney() {
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
+    function addMoney(event) {
         event.preventDefault;
     }
+
+    useEffect(() => {
+        if (!isLoggedIn) {
+            // User is not logged in, redirect to login page
+            navigate('/login');
+        }
+    }, [isLoggedIn, navigate]);
+
+
   return (
     
     <div className="dashboard">
@@ -19,13 +39,16 @@ function Dashboard() {
                     <NavLink to="/dashboard">Dashboard</NavLink>
                 </div>
                 <div>
-                    <NavLink to="/">Log Out</NavLink>
+                    <button onClick={handleLogout}>Log Out</button>
                 </div>
             </div>
-            <h2>Dashboard</h2>
+            <p className="dashboard--heading">Dashboard</p>
             <div className="wallet-balance">
-                <div><h4>Wallet Balance</h4></div>
-                <div className="money"><div>&#8358;100,000 </div><div><button onClick={addMoney} >Add Money</button></div></div>
+                <div>
+                    <p className="wallet-balance--heading">Wallet Balance</p>
+                    <p className="amount">&#8358;100,000</p>
+                </div>
+                <button onClick={addMoney} >Add Money</button>
             </div>
             <div className="order-notifications">
                 <div className="order-info">

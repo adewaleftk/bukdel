@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import '../styles/login.css';
 import LoginImage from '../images/login-image.png'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import usePackageStore from '../../store';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+    const login = usePackageStore(state => state.login);
   
     const handleEmailChange = (e) => {
       setEmail(e.target.value);
@@ -16,14 +18,41 @@ function Login() {
       setPassword(e.target.value);
     };
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Your login logic here
-      console.log('Email:', email);
-      console.log('Password:', password);
-      // navigate('/dasboard');
-      // You can use this data to authenticate the user or handle the login process.
-    };
+    async function handleLoginSubmit(event) {
+      event.preventDefault();
+
+      const baseUrl = 'https://bukdelbe.vercel.app';
+      const apiUrl = `${baseUrl}/api/v1/auth/login`;
+
+      const requestData = {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              email: email,
+              password: password,
+          }),
+      };
+
+      try {
+          const response = await fetch(apiUrl, requestData);
+          const responseData = await response.json();
+
+          if (response.ok && responseData.status === true) {
+              // Login successful
+              console.log('Login successful:', responseData.message);
+              navigate('/dashboard');
+              console.log('User Token:', responseData.data.token);
+              login(responseData.data.token); 
+          } else {
+              console.error('Login failed:', responseData.message);
+          }
+      } catch (error) {
+          console.error('An error occurred:', error);
+          // Handle any unexpected errors
+      }
+  }
   
     return (
       <div className='login'>
@@ -36,7 +65,7 @@ function Login() {
             <p>Log in to your account</p>
           </div>
           <div>
-            <form onSubmit={handleSubmit} className='login-form'>
+            <form className='login-form'>
               <div className='form-group'>
                 <p><label htmlFor="email">Email Address</label></p>
                 <input
@@ -62,7 +91,7 @@ function Login() {
                     <div><a href="/forgot-password">Reset</a></div>
                 </div>
               </div>
-              <button type="submit">Login</button>
+              <button type="submit" onClick={handleLoginSubmit}>Login</button>
             </form>
           </div>
         </div>

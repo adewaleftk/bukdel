@@ -6,26 +6,42 @@ import Start from '../images/start.png'
 import Manage from '../images/manage.png'
 import Cart from '../images/cart.png'
 import { NavLink } from 'react-router-dom'
+import usePackageStore from '../../store'
+import { useNavigate } from 'react-router-dom'
 
 function DelicaciesDashboard() {
+    const cartItems = usePackageStore((state) => state.cartItems);
+    const logout = usePackageStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
+
   return (
     <div className='delicacies-dashboard'>
         <DashboardNav />
         <div className='delicacies-dashboard-body'>
-            <div className='heading'>
+        <div className='heading'>
                 <div>
                     <NavLink to="/delicacies-dashboard">Delicacies</NavLink>
                 </div>
-                <div className='heading-cart'>
-                    <div>
-                        <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase"><img src={Cart} />Cart</NavLink>
+                <div className='start-food-heading-cart'>
+                    <div className='start-food-plan-cart-group'>
+                      <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">
+                        <img src={Cart} className="cart-image" /> {cartItems.length > 0 && <span className='cart-count'>{cartItems.length}</span>}
+                        
+                      </NavLink>
+                      <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">Cart</NavLink>
                     </div>
                     <div>
-                        <NavLink to="/">Log Out</NavLink>
+                        <button onClick={handleLogout}>Log Out</button>
                     </div>
                 </div>
             </div>
-            <h2>Delicacies</h2>
+            <p className='delicacy---heading'>Delicacies</p>
             <div className='delicacies-order'>
                 <div>
                     <NavLink to="/delicacies-dashboard/orderfood-dashboard">
@@ -44,10 +60,12 @@ function DelicaciesDashboard() {
             </div>
             <div className='food-plan'>
                 <div>
+                    <NavLink to="/delicacies-dashboard/start-food-plan">
                     <img src={Start} />
                     <h3>Start a Food Plan</h3>
                     <p>Customize and plan your food options for a month and</p>
                     <p>let us handle it for you</p>
+                    </NavLink>
                 </div>
                 <div>
                     <img src={Manage} />

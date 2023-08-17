@@ -13,6 +13,14 @@ function ReviewPage() {
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
 
+    const logout = usePackageStore(state => state.logout);
+
+    const handleLogout = () => {
+      logout(); 
+      navigate('/');
+    };
+
+
     function proceedToPay() {
         navigate('/logistics-dashboard/send/review/pay');
     }
@@ -35,7 +43,7 @@ function ReviewPage() {
                     </div>
                     <div className='heading-cart'>
                         <div>
-                            <NavLink to="/">Log Out</NavLink>
+                            <button onClick={handleLogout}>Log Out</button>
                         </div>
                     </div>
                 </div>
