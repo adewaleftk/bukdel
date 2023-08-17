@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 
 function Dashboard() {
-    const isLoggedIn = usePackageStore(state => state.isLoggedIn);
+    // const isLoggedIn = usePackageStore(state => state.isLoggedIn);
+    const userToken = usePackageStore(state => state.userToken);
     const navigate = useNavigate();
     const logout = usePackageStore(state => state.logout);
 
@@ -22,11 +23,11 @@ function Dashboard() {
     }
 
     useEffect(() => {
-        if (!isLoggedIn) {
+        if (!userToken) {
             // User is not logged in, redirect to login page
             navigate('/login');
         }
-    }, [isLoggedIn, navigate]);
+    }, [userToken, navigate]);
 
 
   return (

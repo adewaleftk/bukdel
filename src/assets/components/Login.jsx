@@ -42,9 +42,13 @@ function Login() {
           if (response.ok && responseData.status === true) {
               // Login successful
               console.log('Login successful:', responseData.message);
-              navigate('/dashboard');
+              
+              console.log(responseData);
               console.log('User Token:', responseData.data.token);
-              login(responseData.data.token); 
+              const userToken = responseData.data.token;
+              login(userToken);
+              navigate('/dashboard');
+              // login(responseData.data.token); 
           } else {
               console.error('Login failed:', responseData.message);
           }
