@@ -36,7 +36,7 @@ function Signup() {
     async function handleSignUpSubmit(event) {
         event.preventDefault();
 
-        const baseUrl = 'https://bukdelbe.vercel.app'; // Replace with your base URL
+        const baseUrl = 'https://bukdelbe.vercel.app';
         const apiUrl = `${baseUrl}/api/v1/auth/register`;
 
         const requestData = {
@@ -86,15 +86,15 @@ function Signup() {
             <form>
                 <div className='signup-first-last'>
                     <div>
-                    <p><label htmlFor="firstName">First Name</label></p>
-                    <input
-                    type="text"
-                    placeholder="First Name"
-                    id="firstName"
-                    value={firstName}
-                    onChange={handleFirstnameChange}
-                    required
-                    />
+                        <p><label htmlFor="firstName">First Name</label></p>
+                        <input
+                        type="text"
+                        placeholder="First Name"
+                        id="firstName"
+                        value={firstName}
+                        onChange={handleFirstnameChange}
+                        required
+                        />
                     </div>
                     <div>
                         <p><label htmlFor="lastName">Last Name</label></p>

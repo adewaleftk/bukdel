@@ -193,12 +193,14 @@
 .signup-first-last {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .signup-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 30%;
 }
 
 .signup-box .logo {
@@ -225,13 +227,17 @@
     font-family: Montserrat;
     width: 175px;
     margin-bottom: 10px;
+    height: 40px;
+    /* width: 90%; */
 }
 
 #email, #phoneNumber, #password, #submit {
     font-size: 16px;
     font-family: Montserrat;
-    width: 350px;
+    /* width: 350px; */
     margin-bottom: 10px;
+    height: 40px;
+    width: 100%;
 }
 
 .signup-box label {

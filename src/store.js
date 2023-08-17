@@ -97,9 +97,6 @@ const usePackageStore = create((set) => ({
     estimateDropoffCity: '',
   },
 
-  // isLoggedIn: false,
-  // userToken: null,
-
   userToken: localStorage.getItem('userToken') || null,
   login: (token) => {
     set({ userToken: token });
@@ -110,9 +107,6 @@ const usePackageStore = create((set) => ({
     localStorage.removeItem('userToken');
   },
 
-
-  // login: (token) => set({ isLoggedIn: true, userToken: token }),
-  // logout: () => set({ isLoggedIn: false, userToken: null }),
 
   setEstimateData: (newEstimateData) => set((state) => ({ estimateData: { ...state.estimateData, ...newEstimateData } })),
   setSenderData: (newSenderData) => set((state) => ({ senderData: { ...state.senderData, ...newSenderData } })),

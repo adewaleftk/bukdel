@@ -224,6 +224,7 @@
     flex-direction: column;
     justify-content: center;
     margin-right: 50px;
+    width: 30%;
 }
 
 .welcome {
@@ -279,6 +280,10 @@
   font-size: 18px;
   border: none;
   cursor: pointer;
+}
+
+.login-image {
+  width: 30%;
 }
 
 .login-image img {
