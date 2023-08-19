@@ -13,6 +13,7 @@ import usePackageStore from '../../store'
 function Profile() {
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
+    const user = usePackageStore(state => state.user);
 
     const handleLogout = () => {
       logout(); 
@@ -40,13 +41,13 @@ function Profile() {
                 <div className='personal-info'>
                     <p className='personal-info-heading'>Personal Information</p>
                     <p className='name'>First Name</p>
-                    <p className='name-info'>Babatunde</p>
+                    <p className='name-info'>{user.first_name}</p>
                     <p className='name'>Last Name</p>
-                    <p className='name-info'>Olaoluwa</p>
+                    <p className='name-info'>{user.last_name}</p>
                     <p className='name'>Email Address</p>
-                    <p className='name-info'>example@gmail.com</p>
+                    <p className='name-info'>{user.email}</p>
                     <p className='name'>Phone Number</p>
-                    <p className='name-info'>08123456789</p>
+                    <p className='name-info'>{user.phone}</p>
                     <div className='edit-profile'>
                         <div>
                             <p className='name'>Alternative Phone Number</p>

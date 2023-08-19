@@ -10,6 +10,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const [loginSuccess, setLoginSuccess] = useState(false);
+    const [loginError, setLoginError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const login = usePackageStore(state => state.login);
   
@@ -24,6 +25,7 @@ function Login() {
     async function handleLoginSubmit(event) {
       event.preventDefault();
       setIsLoading(true);
+      setLoginError(null); // Clear previous errors
 
       const baseUrl = 'https://bukdelbe.vercel.app';
       const apiUrl = `${baseUrl}/api/v1/auth/login`;
@@ -50,12 +52,15 @@ function Login() {
               console.log('User Token:', responseData.data.token);
               const userToken = responseData.data.token;
               login(userToken);
+              usePackageStore.setState({ user: responseData.data });
               setLoginSuccess(true);
               setTimeout(() => {
               navigate('/dashboard'); // Redirect to dashboard
               }, 5000); 
           } else {
               console.error('Login failed:', responseData.message);
+              console.log(responseData);
+              setLoginError(responseData.errorMessage); 
           }
         } catch (error) {
           console.error('An error occurred:', error);
@@ -101,6 +106,7 @@ function Login() {
                     <div><a href="/forgot-password">Reset</a></div>
                 </div>
               </div>
+              {loginError && <p className="error-message">{loginError}</p>}
               <button
                 type="submit"
                 onClick={handleLoginSubmit}

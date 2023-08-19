@@ -11,6 +11,7 @@ function Signup() {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhonenumber] = useState('');
     const [password, setPassword] = useState('');
+    const [signupError, setSignupError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
   
@@ -37,6 +38,7 @@ function Signup() {
     async function handleSignUpSubmit(event) {
         event.preventDefault();
         setIsLoading(true);
+        setSignupError(null); // Clear previous errors
 
         const baseUrl = 'https://bukdelbe.vercel.app';
         const apiUrl = `${baseUrl}/api/v1/auth/register`;
@@ -66,7 +68,8 @@ function Signup() {
                 // navigate('/login');
             } else {
                 // Signup failed, handle the error scenario
-                console.error('Signup failed:', responseData.message);
+                console.error('Signup failed:', responseData.errorMessage);
+                setSignupError(responseData.errorMessage);
                 // Display an error message to the user
             }
         } catch (error) {
@@ -146,6 +149,7 @@ function Signup() {
                     required
                     /> 
                 </div>
+                {signupError && <p className="error-message">{signupError}</p>}
                 <div>
                 <button
                 type="submit"

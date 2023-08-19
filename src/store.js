@@ -59,6 +59,10 @@ const usePackageStore = create((set) => ({
     }));
   },
 
+  user: null, // Initial user state is null
+
+  setUser: (user) => set({ user }),
+
   senderData: {
     senderName: '',
     pickupAddress: '',
