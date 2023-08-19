@@ -52,6 +52,8 @@ async function fetchCart() {
       console.log(responseData);
     } else {
       console.error('Failed to fetch cart');
+      const responseData = await response.json();
+      console.log(responseData);
     }
   } catch (error) {
     console.error('An error occurred:', error);

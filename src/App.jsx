@@ -20,6 +20,7 @@ import Profile from "./assets/pages/Profile"
 import GetEstimate from "./assets/pages/GetEstimate"
 import PackageHistory from "./assets/pages/PackageHistory"
 import StartFoodPlan from "./assets/pages/StartFoodPlan"
+import ScrollToTop from "./assets/components/ScrollToTop"
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/delicacies-dashboard/orderfood-dashboard/purchase/checkout" element={<Checkout />} />
         <Route path="/delicacies-dashboard/orderfood-dashboard/purchase/checkout/payment" element={<PaymentMethod />} />
       </Routes>
+      <ScrollToTop />
     </>
   )
 }
