@@ -53,6 +53,7 @@ function Login() {
               const userToken = responseData.data.token;
               login(userToken);
               usePackageStore.setState({ user: responseData.data });
+              localStorage.setItem('user', JSON.stringify(responseData.data));
               setLoginSuccess(true);
               setTimeout(() => {
               navigate('/dashboard'); // Redirect to dashboard
