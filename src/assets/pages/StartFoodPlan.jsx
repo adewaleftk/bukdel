@@ -16,14 +16,13 @@ function StartFoodPlan() {
       navigate('/');
     };
 
-
   return (
     <div className='start-food-plan'>
         <DashboardNav />
         <div className='start-food-plan--body'>
             <div className='heading'>
                 <div>
-                    <NavLink to="/delicacies-dashboard">Delicacies &gt; Order Food</NavLink>
+                    <NavLink to="/delicacies-dashboard">Delicacies &gt; Start Food Plan</NavLink>
                 </div>
                 <div className='start-food-heading-cart'>
                     <div className='start-food-plan-cart-group'>

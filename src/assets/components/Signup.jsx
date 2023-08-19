@@ -2,7 +2,7 @@ import '../styles/signup.css'
 import { useState } from 'react';
 import SignupImage from '../images/signup-image.png';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import RegistrationSuccess from './RegistrationSuccess';
 
 function Signup() {
 
@@ -11,7 +11,8 @@ function Signup() {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhonenumber] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate()
+    const [isLoading, setIsLoading] = useState(false);
+    const [registrationSuccess, setRegistrationSuccess] = useState(false);
   
     const handleFirstnameChange = (e) => {
       setFirstName(e.target.value);
@@ -35,6 +36,7 @@ function Signup() {
 
     async function handleSignUpSubmit(event) {
         event.preventDefault();
+        setIsLoading(true);
 
         const baseUrl = 'https://bukdelbe.vercel.app';
         const apiUrl = `${baseUrl}/api/v1/auth/register`;
@@ -60,7 +62,8 @@ function Signup() {
             if (response.ok && responseData.status === true) {
                 // Signup successful
                 console.log('Signup successful:', responseData.message);
-                navigate('/login');
+                setRegistrationSuccess(true);
+                // navigate('/login');
             } else {
                 // Signup failed, handle the error scenario
                 console.error('Signup failed:', responseData.message);
@@ -69,7 +72,9 @@ function Signup() {
         } catch (error) {
             console.error('An error occurred:', error);
             // Handle any unexpected errors
-        }
+        }finally {
+            setIsLoading(false);
+          }
     }
 
   return (
@@ -142,7 +147,15 @@ function Signup() {
                     /> 
                 </div>
                 <div>
-                    <button type="submit" id='submit' onClick={handleSignUpSubmit} >Create Account</button>
+                <button
+                type="submit"
+                id='submit'
+                onClick={handleSignUpSubmit}
+                className={`loading-button ${isLoading ? "loading" : ""}`}
+                disabled={isLoading}
+              >
+                {isLoading ? "Loading" : "Create Account"}
+              </button>
                 </div>
             </form>
             <div className='signup-footer'>
@@ -152,6 +165,9 @@ function Signup() {
         <div className='signup-image'>
             <img src={SignupImage} alt="Signup Image" />
         </div>
+        {registrationSuccess && (
+            <RegistrationSuccess  />
+    )}
     </div>
   )
 }

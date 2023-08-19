@@ -4,6 +4,10 @@
     font-family: Montserrat;
 }
 
+.heading button:hover {
+    cursor: pointer;
+}
+
 .start-food-plan--body {
     display: flex;
     flex-direction: column;

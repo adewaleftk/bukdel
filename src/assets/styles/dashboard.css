@@ -49,6 +49,10 @@
     border: none;
 }
 
+.dashboard--logout button:hover {
+    cursor: pointer;
+}
+
 .wallet-balance {
     width: 48%;
     height: 20%;
