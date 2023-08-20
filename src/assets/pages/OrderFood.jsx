@@ -90,7 +90,6 @@ async function fetchFoods() {
         const response = await fetch('https://bukdelbe.vercel.app/api/v1/foods/get_foods/X-A89crea2jrsajRS9PLMNduz6kGAP9ivp', {
             headers: {
                 'x_token': 'X-MisXoKw1Eh2fIJaa4CCP6YUqB9P51K4J',
-                // 'X-MisXoKw1Eh2fIJaa4CCP6YUqB9P51K4J': true,
             },
         });
 
@@ -100,6 +99,8 @@ async function fetchFoods() {
             setFoods(responseData.data);
         } else {
             console.error('Failed to fetch foods');
+            const responseData = await response.json();
+            console.log(responseData);
         }
     } catch (error) {
         console.error('An error occurred:', error);

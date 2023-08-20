@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom"
 import usePackageStore from "../../store"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import MobileDashboardNav from "../components/MobileDashboardNav"
 
 function Dashboard() {
     // const isLoggedIn = usePackageStore(state => state.isLoggedIn);
@@ -29,11 +30,12 @@ function Dashboard() {
         }
     }, [userToken, navigate]);
 
+    const isMobile = window.innerWidth < 768;
 
   return (
     
     <div className="dashboard">
-        <DashboardNav />
+        {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className="dashboard-body">
             <div className="dashboard--logout">
                 <div>

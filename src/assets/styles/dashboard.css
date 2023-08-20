@@ -89,14 +89,14 @@
     background: #FFFFFF;
 }
 
-.money {
+/* .money {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     font-size: 30px;
     font-family: Montserrat;
     margin-top: 10px;
-}
+} */
 
 .order-info {
     width: 48%;
@@ -176,4 +176,111 @@
     background: #7631E6;
     color: #ffffff;
     height: 100%;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard-body {
+        background: #F2F2F2;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        /* justify-content: center; */
+    }
+
+    .wallet-balance {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background: #FFFFFF;
+        /* margin-left: 20px; */
+        font-family: Montserrat;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .wallet-balance .wallet-balance--heading {
+        /* margin-left: 40px; */
+        font-size: 15px;
+        font-weight: 700;
+    }
+    
+    .wallet-balance .amount {
+        font-size: 30px;
+        font-weight: 500;
+    }
+    
+    .wallet-balance button {
+        width: 40%;
+        height: 50px;
+        color: #7631E6;
+        font-size: 16px;
+        font-weight: 700;
+        border: 2px solid #7631E6;
+        outline: none;
+        background: #FFFFFF;
+    }
+
+    .order-notifications {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-family: Montserrat;
+    }
+
+    .order-info {
+        width: 100%;
+    }
+
+    .notifications {
+        display: flex;
+        flex-direction: column;
+        background: #FFFFFF;
+        font-family: Montserrat;
+        width: 100%;
+        padding: 0px;
+    }
+    
+    .notifications h2 {
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+
+    .notifications-details {
+        display: flex;
+        flex-direction: column;
+        font-family: Montserrat;
+        border-left: 5px solid #7631E6;
+        margin-bottom: 8px;
+        padding: 0px;
+    }
+    
+    .notifications-details-info {
+        display: flex;
+        flex-direction: row;
+        font-family: Montserrat;
+        justify-content: space-between;
+    }
+    
+    .notifications-details-info div:nth-child(2) {
+        font-size: 14px;
+        font-weight: 700;
+    }
+    
+    .notifications-details-info div:nth-child(1) {
+        font-size: 16px;
+        font-weight: 400;
+    }
+    
+    
 }

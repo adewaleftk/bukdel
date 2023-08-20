@@ -8,6 +8,7 @@ import Profile from '../images/profile-icon.png'
 import { NavLink } from 'react-router-dom'
 
 function DashboardNav() {
+    
   return (
     <nav className="dashboardnav">
         <NavLink to="/" id="dashboard-logo">BUKDEL</NavLink>
