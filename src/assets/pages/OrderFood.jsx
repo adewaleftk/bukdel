@@ -6,12 +6,14 @@ import Cart from '../images/cart.png'
 import usePackageStore from '../../store'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function OrderFood() {
   // const addToCart = usePackageStore((state) => state.addToCart);
   const cartItems = usePackageStore((state) => state.cartItems);
   const logout = usePackageStore(state => state.logout);
   const navigate = useNavigate();
+  const isMobile = window.innerWidth < 768;
 
   const handleLogout = () => {
     logout(); 
@@ -109,7 +111,7 @@ async function fetchFoods() {
 
   return (
     <div className='orderfood'>
-      <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
       <div className='orderfood-body'>
           <div className='heading'>
                 <div>

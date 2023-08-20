@@ -166,3 +166,181 @@ h3 {
     text-align: center;
     color: #ffffff;
 }
+
+@media only screen and (max-width: 768px) {
+    .purchase-cart {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .purchase-cart-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: #F2F2F2;
+    }
+    
+    .purchase-cart-body > .heading {
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .cart-list-heading {
+        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 13px;
+        padding: 10px;
+        font-weight: 700;
+        width: 100%;
+    }
+    
+    .cart-list-heading div:nth-child(2) {
+        margin-left: 0px;
+    }
+    
+    .cart-list-heading div:nth-child(4) {
+        margin-right: 0px;
+    }
+    
+    .cart-list-heading div:nth-child(3) {
+        margin-left: 0px;
+    }
+    
+    .cart-list {
+        background: #ffffff;
+        font-family: Montserrat;
+    }
+    .cart-tem div {
+        /* display: flex;
+        flex-direction: row; */
+        border: 1px solid red;
+    }
+    
+    .cart-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    
+    .cart-item div:first-child {
+        width: 180px;
+        margin-left: 0px;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    
+    .cart-item div:nth-child(2), .cart-item div:nth-child(4) {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .item-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 400;
+        /* margin-left: -50px; */
+    }
+    
+    .item-name img {
+        height: 45px;
+    }
+    
+    .cart-item button {
+        border: none;
+        background: #ffffff;
+    }
+    
+    .cart-list h3 {
+        font-size: 24px;
+        font-weight: 700;
+    }
+    
+    .toggle-quantity {
+        border: 1px solid #DFE5FF;
+        width: 60px;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .total-buttons {
+        height: 200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .total-buttons > .total {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: right;
+        margin-top: 50px;
+        padding: 10px;
+    }
+    
+    .total-buttons > .total span:nth-child(1), .total-buttons > .total span:nth-child(2) {
+        font-size: 20px;
+        font-weight: 500;
+        font-family: Montserrat;
+        
+    }
+    
+    .total-buttons > .total span:nth-child(3) {
+        font-size: 24px;
+        font-weight: 700;
+    }
+    
+    .total-buttons > .buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: 0px;
+    }
+    
+    .total-buttons > .buttons a {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 600 ;
+    }
+    
+    /* All links inherited text-decoration:none from the orderFood CSS file */
+    
+    .total-buttons > .buttons a:nth-child(1) {
+        border: 2px solid #8745FD;
+        font-size: 20px;
+        font-weight: 600;
+        width: 270px;
+        margin-right: 10px;
+        text-align: center;
+    }
+    
+    .total-buttons > .buttons a:nth-child(2) {
+        background: #8745FD;
+        width: 270px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        color: #ffffff;
+    }
+}

@@ -39,7 +39,6 @@
 .logistics-send a {
     text-decoration: none;
     color: #000000;
-
 }
 
 .logistics-send a:hover {
@@ -123,4 +122,140 @@
 .logistics-estimate div p {
     font-size: 14px;
     font-weight: 500;
+}
+
+@media only screen and (max-width: 768px) {
+    .logistics-dashboard {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .logistics-dashboard-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: #F2F2F2;
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+    
+    .logistics-dashboard-body .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-family: Montserrat;
+        margin: 20px;
+        /* margin-bottom: 120px; */
+    }
+    
+    .logistics-dashboard-body .heading a {
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        color: #7631E6;
+    }
+    
+    .logistics--heading {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        font-size: 30px;
+        font-weight: 600;
+        margin-left: 20px;
+    }
+
+
+
+
+    .logistics-send a {
+        text-decoration: none;
+        color: #000000;
+    }
+    
+    .logistics-send a:hover {
+        background: #7631E6;
+        color: #ffffff;
+        height: 100%;
+    }
+    
+    .logistics-estimate a {
+        text-decoration: none;
+        color: #000000;
+    }
+    
+    .logistics-estimate a:hover {
+        background: #7631E6;
+        color: #ffffff;
+        height: 100%;
+    }
+    
+    .logistics-send {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-around; */
+    }
+    
+    .logistics-estimate {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        /* justify-content: space-around; */
+    }
+    
+    .logistics-send div {
+        background: #ffffff;
+        margin-left: 0px;
+        margin-top: 20px;
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: Montserrat;
+        padding: 10px;
+    }
+    
+    .logistics-send div h3 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    
+    .logistics-send div p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    .logistics-send div img {
+        width: 80px;
+    }
+    
+    .logistics-estimate div {
+        background: #ffffff;
+        margin-left: 0px;
+        margin-top: 20px;
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: Montserrat;
+        padding: 10px;
+    }
+    
+    .logistics-estimate div img {
+        width: 80px;
+    }
+    
+    .logistics-estimate div h3 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    
+    .logistics-estimate div p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
 }

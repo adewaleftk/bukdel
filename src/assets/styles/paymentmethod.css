@@ -32,3 +32,19 @@
     padding: 10px;
 }
 
+@media only screen and (max-width: 768px) {
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .payment-method-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: #F2F2F2;
+        font-family: Montserrat;
+    }
+    
+}

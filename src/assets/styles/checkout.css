@@ -100,3 +100,39 @@
 /* .delivery-method-options > div > input  {
     border: 1px solid red;
 } */
+
+@media only screen and (max-width: 768px) {
+    .checkout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .checkout-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: #F2F2F2;
+        font-family: Montserrat;
+    }
+
+    .checkout-body > .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 10px;
+    }
+
+    .checkout h2 {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0px 10px 10px 10px;
+    }
+    
+    
+}

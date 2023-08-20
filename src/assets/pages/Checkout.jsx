@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom'
 import Cart from '../images/cart.png'
 import { useNavigate } from 'react-router-dom'
 import usePackageStore from '../../store'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function Checkout() {
+    const isMobile = window.innerWidth < 768;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
 
@@ -17,7 +19,7 @@ function Checkout() {
  
   return (
     <div className='checkout'>
-        <DashboardNav />
+        {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='checkout-body'>
             <div className='heading'>
                 <div>

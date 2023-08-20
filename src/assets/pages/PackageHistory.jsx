@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom'
 import Vector from '../images/vector.png'
 import { useNavigate } from 'react-router-dom'
 import usePackageStore from '../../store'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function PackageHistory() {
-
+    const isMobile = window.innerWidth < 768;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
 
@@ -17,7 +18,7 @@ function PackageHistory() {
 
   return (
     <div className='package-history'>
-        <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='package-history-body'>
             <div className='heading'>
                 <div>

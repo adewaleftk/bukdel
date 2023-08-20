@@ -100,3 +100,113 @@
     font-size: 20px;
     font-weight: 600;
 }
+
+@media only screen and (max-width: 768px) {
+    .dashboard-get-estimate {
+        display: flex;
+        flex-direction: column;
+        font-family: Montserrat;
+    }
+    
+    .dashboard-get-estimate--body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        background: #F2F2F2;
+        /* align-items: center; */
+    }
+
+    .dashboard-get-estimate--body .heading {
+        display: none;
+        flex-direction: row;
+        font-size: 20px;
+        font-weight: 600;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    .dashboard-get-estimate--body .heading a {
+        color: #7631E6;
+    }
+    
+    .get-estimate--delivery-details {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        margin: 0px;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .get-estimate--delivery-details-inputs {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .get-estimate--delivery-details-inputs-child {
+        display: flex;
+        flex-direction: column;
+        /* margin-right: 10px; */
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .get-estimate--delivery-details-inputs-child select, .get-estimate--delivery-details-inputs-info select {
+        font-size: 16px;
+        font-weight: 500;
+        background: #ffffff;
+        font-family: Montserrat;
+        height: 40px;
+        /* width: 100%; */
+        border: 2px solid #000000;
+        /* color: #00000066; */
+    }
+    
+    .get-estimate-topic {
+        font-size: 30px;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+    
+    .delivery-details--topic {
+        font-weight: 700;
+        font-size: 25px;
+    }
+    
+    .get-estimate--delivery-details-inputs-info {
+        display: flex;
+        flex-direction: column;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 700; 
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .get-estimate--delivery-details-inputs-info input {
+        border: 2px solid #000000;
+        height: 40px;
+        /* margin-right: 10px; */
+    }
+    
+    .get-estimate-button {
+        width: 100%;
+        height: 40px;
+    }
+    
+    .get-estimate-button button {
+        height: 100%;
+        width: 100%;
+        background: #7631E6;
+        border: none;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+}

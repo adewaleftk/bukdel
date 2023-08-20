@@ -4,8 +4,10 @@ import { NavLink } from 'react-router-dom'
 import Cart from '../images/cart.png'
 import usePackageStore from '../../store'
 import { useNavigate } from 'react-router-dom'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function PaymentMethod() {
+    const isMobile = window.innerWidth < 768;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ function PaymentMethod() {
 
   return (
     <div className='payment-method'>
-        <DashboardNav />
+        {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='payment-method-body'>
             <div className='heading'>
                 <div>

@@ -7,9 +7,11 @@ import GetEstimate from '../images/getestimate-icon.png'
 import PackageHistory from '../images/packagehistory-icon.png'
 import { useNavigate } from 'react-router-dom'
 import usePackageStore from '../../store'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function LogisticsDashboard() {
 
+    const isMobile = window.innerWidth < 768;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
 
@@ -20,7 +22,7 @@ function LogisticsDashboard() {
 
   return (
     <div className='logistics-dashboard'>
-      <DashboardNav />
+    {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
       <div className='logistics-dashboard-body'>
             <div className='heading'>
                 <div>

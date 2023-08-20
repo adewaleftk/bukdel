@@ -2,9 +2,12 @@ import '../styles/proceedtopay.css'
 import DashboardNav from '../components/DashboardNav'
 import Cancel from '../images/cancel.png'
 import { useNavigate } from 'react-router-dom'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 // import usePackageStore from '../../store'
 
 function ProceedToPay() {
+
+    const isMobile = window.innerWidth < 768;
     const navigate = useNavigate();
     function handleBackClick() {
         navigate('/logistics-dashboard/send/review');
@@ -19,7 +22,7 @@ function ProceedToPay() {
 
   return (
     <div className='proceed--to-pay'>
-        <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='body'>
             <div className='heading'>
                 <p>How would you like to pay?</p>

@@ -3,9 +3,11 @@ import DashboardNav from '../components/DashboardNav'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import usePackageStore from '../../store';
+import MobileDashboardNav from '../components/MobileDashboardNav';
 
 function SendPackageReceiver() {
 
+    const isMobile = window.innerWidth < 768;
     const navigate = useNavigate();
     const receiverData = usePackageStore(state => state.receiverData);
     const setReceiverData = usePackageStore(state => state.setReceiverData);
@@ -61,7 +63,7 @@ function SendPackageReceiver() {
       
   return (
     <div className='send-package-dashboard'>
-        <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='send-package-dashboard-body'>
             <div className='heading'>
                 <div>

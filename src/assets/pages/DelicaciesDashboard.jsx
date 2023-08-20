@@ -8,11 +8,13 @@ import Cart from '../images/cart.png'
 import { NavLink } from 'react-router-dom'
 import usePackageStore from '../../store'
 import { useNavigate } from 'react-router-dom'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function DelicaciesDashboard() {
     const cartItems = usePackageStore((state) => state.cartItems);
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
+    const isMobile = window.innerWidth < 768;
 
     const handleLogout = () => {
       logout(); 
@@ -22,7 +24,7 @@ function DelicaciesDashboard() {
 
   return (
     <div className='delicacies-dashboard'>
-        <DashboardNav />
+        {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='delicacies-dashboard-body'>
         <div className='heading'>
                 <div>

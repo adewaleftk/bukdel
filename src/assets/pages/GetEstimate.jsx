@@ -5,8 +5,10 @@ import usePackageStore from '../../store'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Cancel from '../images/cancel.png'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function GetEstimate() {
+    const isMobile = window.innerWidth < 768;
     const [showPopup, setShowPopup] = useState(false);
     const estimateData = usePackageStore(state => state.estimateData);
     const setEstimateData = usePackageStore(state => state.setEstimateData);
@@ -85,7 +87,7 @@ function GetEstimate() {
 
   return (
     <div className='dashboard-get-estimate'>
-        <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='dashboard-get-estimate--body'>
             <div className='heading'>
                 <div>

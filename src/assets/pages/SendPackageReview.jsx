@@ -5,8 +5,10 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import Cancel from '../images/cancel.png'
 import { useNavigate } from 'react-router-dom';
+import MobileDashboardNav from '../components/MobileDashboardNav';
 
 function ReviewPage() {
+    const isMobile = window.innerWidth < 768;
     const senderData = usePackageStore(state => state.senderData);
     const receiverData = usePackageStore(state => state.receiverData);
 
@@ -35,7 +37,7 @@ function ReviewPage() {
 
     return (
         <div className='send-package-review'>
-            <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
            <div className='send-package-review-body'>
                 <div className='heading'>
                     <div>

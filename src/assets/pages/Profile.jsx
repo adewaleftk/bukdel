@@ -9,8 +9,10 @@ import OrderHistory from '../images/order-history.png'
 import Refer from '../images/refer.png'
 import { useNavigate } from 'react-router-dom'
 import usePackageStore from '../../store'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function Profile() {
+    const isMobile = window.innerWidth < 768;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
     const user = usePackageStore(state => state.user);
@@ -23,7 +25,7 @@ function Profile() {
 
   return (
     <div className='profile'>
-        <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='profile-body'>
             <div className='heading'>
                 <div>

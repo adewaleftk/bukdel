@@ -6,30 +6,33 @@ import Delete from '../images/delete-icon.png'
 import MiniSpag from '../images/spaghetti-icon.png'
 import usePackageStore from '../../store';
 import { useNavigate } from 'react-router-dom';
+import MobileDashboardNav from '../components/MobileDashboardNav';
 
 const PurchaseCart = () => {
 
-  const increaseQuantity = usePackageStore(state => state.increaseQuantity);
-  const decreaseQuantity = usePackageStore(state => state.decreaseQuantity);
-  const cartItems = usePackageStore((state) => state.cartItems);
-  const removeFromCart = usePackageStore(state => state.removeFromCart);
 
-  const subTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
-  const deliveryFee = "";
-  const totalAmount = subTotal + deliveryFee;
+    const isMobile = window.innerWidth < 768;
+    const increaseQuantity = usePackageStore(state => state.increaseQuantity);
+    const decreaseQuantity = usePackageStore(state => state.decreaseQuantity);
+    const cartItems = usePackageStore((state) => state.cartItems);
+    const removeFromCart = usePackageStore(state => state.removeFromCart);
 
-  const logout = usePackageStore(state => state.logout);
-  const navigate = useNavigate();
+    const subTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
+    const deliveryFee = "";
+    const totalAmount = subTotal + deliveryFee;
 
-  const handleLogout = () => {
-    logout(); 
-    navigate('/');
-  };
+    const logout = usePackageStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout(); 
+        navigate('/');
+    };
 
 
   return (
     <div className="purchase-cart">
-        <DashboardNav />
+        {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='purchase-cart-body'>
             <div className='heading'>
                 <div>
