@@ -77,6 +77,11 @@
     font-weight: 500;
 }
 
+.package-history--contents ul {
+    list-style-type: none;
+    display: flex;
+}
+
 @media only screen and (max-width: 768px) {
     .package-history {
         display: flex;
