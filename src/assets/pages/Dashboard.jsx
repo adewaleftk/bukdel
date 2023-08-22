@@ -222,7 +222,7 @@ function Dashboard() {
                         <p>{accountName}</p>
                         <p>{bankName}</p>
                         <div className='proceed-to-pay-button'>
-                            <button >Proceed to Pay</button>
+                            {/* <button >Proceed to Pay</button> */}
                             <button onClick={handleClosePopup}>Close</button>
                         </div>
                     </div>
