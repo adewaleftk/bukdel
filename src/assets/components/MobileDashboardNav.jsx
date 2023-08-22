@@ -16,18 +16,17 @@ function MobileDashboardNav() {
         </div>
         <div className="links-container">
             <NavLink to="/dashboard">Dashboard</NavLink>
-            <NavLink to="/delicacies-dashboard">Delicacies</NavLink>
+            <NavLink to="/delicacies-dashboard">Order Food</NavLink>
             <NavLink to="/logistics-dashboard">Logistics</NavLink>
-            <NavLink to="#">Events</NavLink>
-            <NavLink to="#">Drinks</NavLink>
-            <NavLink to="/profile-dashboard">Profie</NavLink>
+            <NavLink to="/events-dashboard">Events</NavLink>
+            <NavLink to="/profile-dashboard">Profile</NavLink>
         </div>
         <div className="menu-toggle" onClick={toggleMenu}>
-        <div className={`hamburger ${menuOpen ? 'open' : ''}`}>
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-        </div>
+            <div className={`hamburger ${menuOpen ? 'open' : ''}`}>
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
+            </div>
         </div>
     </nav>
   )

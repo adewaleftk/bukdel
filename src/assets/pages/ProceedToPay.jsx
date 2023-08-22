@@ -33,10 +33,10 @@ function ProceedToPay() {
                     <label htmlFor="wallet-payment">Wallet</label>
                     <input type="radio" id="wallet-payment" name="logistics-payment" value="wallet-payment" required />
                 </div>
-                <div className='payment-method-options-body'>
+                {/* <div className='payment-method-options-body'>
                     <label htmlFor="bank-payment">Card/Bank Transfer</label>
                     <input type="radio" id="bank-payment" name="logistics-payment" value="bank-payment" required />
-                </div>
+                </div> */}
             </div>
             <div className='pay-ment-buttons'>
                 <button>Continue</button>

@@ -2,35 +2,108 @@ import DashboardNav from "../components/DashboardNav"
 import '../styles/dashboard.css'
 import OrderFood from '../images/orderfood-icon.png'
 import SendPackages from '../images/sendpackages-icon.png'
-import { NavLink } from "react-router-dom"
 import usePackageStore from "../../store"
-import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { useNavigate, NavLink } from "react-router-dom"
+import { useEffect, useState } from "react"
 import MobileDashboardNav from "../components/MobileDashboardNav"
+import Cancel from '../images/cancel.png'
 
 function Dashboard() {
-    // const isLoggedIn = usePackageStore(state => state.isLoggedIn);
+    const isMobile = window.innerWidth < 768;
     const userToken = usePackageStore(state => state.userToken);
     const navigate = useNavigate();
     const logout = usePackageStore(state => state.logout);
+    const user = usePackageStore(state => state.user);
+    const userId = user.user_id;
+    const [balance, setBalance] = useState(0);
+    const [showPopup, setShowPopup] = useState(false);
+    const [accountNumber, setAccountNumber] = useState('');
+    const [accountName, setAccountName] = useState('');
+    const [bankName, setBankName] = useState('');
+    const [message, setMessage] = useState('');
+    
+
+    useEffect(() => {
+        topUpWallet();
+    }, []);
+
+    const handleProceedToPay = () => {
+        setShowPopup(true);
+    };
+
+    const handleClosePopup = () => {
+        setShowPopup(false);
+    }
 
     const handleLogout = () => {
       logout(); 
       navigate('/');
     };
+    async function topUpWallet() {
+        try {
+          const response = await fetch(`https://bukdelbe.vercel.app/api/v1/wallets/topup/${userId}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x_token': userToken,
+            },
+          });
+      
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log(responseData);
+            setAccountName(responseData.account_name);
+            setAccountNumber(responseData.account_number);
+            setBankName(responseData.bank)
+            setMessage(responseData.message)
+          } else {
+            console.error('Failed to top up wallet');
+            const responseData = await response.json();
+            console.log(responseData);
+          }
+        } catch (error) {
+          console.error('An error occurred:', error);
+        }
+      }
+      
 
-    function addMoney(event) {
-        event.preventDefault;
-    }
+    async function getWalletBalance() {
+        try {
+          const response = await fetch(`https://bukdelbe.vercel.app/api/v1/wallets/getBalance/${userId}`, {
+            method: 'GET',
+            headers: {
+              'x_token': userToken,
+            },
+          });
+      
+          if (response.ok) {
+            const responseData = await response.json();
+            const balance = responseData.results.wallet;
+            setBalance(balance)
+          } else {
+            console.error('Failed to fetch wallet balance');
+            const errorData = await response.json();
+            console.error(errorData);
+            throw new Error('Failed to fetch wallet balance');
+          }
+        } catch (error) {
+          console.error('An error occurred:', error);
+          throw error;
+        }
+      }
+
+
+  useEffect(() => {
+    getWalletBalance();
+}, []);
+      
 
     useEffect(() => {
         if (!userToken) {
-            // User is not logged in, redirect to login page
             navigate('/login');
         }
     }, [userToken, navigate]);
 
-    const isMobile = window.innerWidth < 768;
 
   return (
     
@@ -49,9 +122,9 @@ function Dashboard() {
             <div className="wallet-balance">
                 <div>
                     <p className="wallet-balance--heading">Wallet Balance</p>
-                    <p className="amount">&#8358;100,000</p>
+                    <p className="amount">&#8358;{balance}</p>
                 </div>
-                <button onClick={addMoney} >Add Money</button>
+                <button onClick={handleProceedToPay} >Add Money</button>
             </div>
             <div className="order-notifications">
                 <div className="order-info">
@@ -136,6 +209,25 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
+            {showPopup && (
+                <div className='popup'>
+                    <div className='popup-content'>
+                        {/* Popup content goes here */}
+                        <div className='ready-heading'>
+                            <p className='ready-to-proceed'>Top Up Wallet</p>
+                            <button onClick={handleClosePopup}><img src={Cancel} /></button>
+                        </div>
+                        <p>{message}</p>
+                        <p>{accountNumber}</p>
+                        <p>{accountName}</p>
+                        <p>{bankName}</p>
+                        <div className='proceed-to-pay-button'>
+                            <button >Proceed to Pay</button>
+                            <button onClick={handleClosePopup}>Close</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     </div>
   )

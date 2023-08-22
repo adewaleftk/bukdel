@@ -1,0 +1,142 @@
+.events-dashboard {
+    display: flex;
+    flex-direction: row;
+}
+
+.events-dashboard-body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 75vw;
+    background: #F2F2F2;
+}
+
+.events-dashboard-body .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 40px 40px 40px;
+}
+
+.events-dashboard-body .heading a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #7631E6;
+}
+
+.delicacy---heading {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 40px;
+}
+
+.events-dashboard-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.events-dashboard-content div {
+    height: 200px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 40%;
+}
+
+.events-dashboard-content div a {
+    color: #000000;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.events-dashboard-content div:hover {
+    color: #7631E6;
+    background: #7631E6;
+}
+
+.events-dashboard-content div a:hover {
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 768px) {
+    .events-dashboard {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .events-dashboard-body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        background: #F2F2F2;
+    }
+    
+    .events-dashboard-body .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 40px 40px 40px;
+    }
+    
+    .events-dashboard-body .heading a {
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        color: #7631E6;
+    }
+    
+    .delicacy---heading {
+        font-size: 20px;
+        font-weight: 600;
+        margin-left: 40px;
+    }
+    
+    .events-dashboard-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+        margin-top: 20px;
+        align-items: center;
+    }
+    
+    .events-dashboard-content div {
+        height: 200px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        width: 40%;
+    }
+    
+    .events-dashboard-content div a {
+        color: #000000;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .events-dashboard-content div:hover {
+        color: #7631E6;
+        background: #7631E6;
+    }
+    
+    .events-dashboard-content div a:hover {
+        color: #ffffff;
+    }
+    
+}

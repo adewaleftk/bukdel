@@ -5,8 +5,10 @@ import Cart from '../images/cart.png'
 import usePackageStore from '../../store'
 import Food from '../images/small-food.png'
 import { useNavigate } from 'react-router-dom'
+import MobileDashboardNav from '../components/MobileDashboardNav'
 
 function StartFoodPlan() {
+    const isMobile = window.innerWidth < 768;
     const cartItems = usePackageStore((state) => state.cartItems);
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
@@ -18,7 +20,7 @@ function StartFoodPlan() {
 
   return (
     <div className='start-food-plan'>
-        <DashboardNav />
+       {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='start-food-plan--body'>
             <div className='heading'>
                 <div>
@@ -78,7 +80,7 @@ function StartFoodPlan() {
                         </div>
                     </div>
                     <div className='day-group'>
-                        <div className='day-heading'>Wednesday</div>
+                        <div className='day-heading'>Tuesday</div>
                         <div className='day-group-info'>
                             <div className='food-menu'>
                                 <img src={Food} />
@@ -113,7 +115,7 @@ function StartFoodPlan() {
                 </div>
                 <div className='start-food-plan--content-group'>
                 <div className='day-group'>
-                        <div className='day-heading'>Tuesday</div>
+                        <div className='day-heading'>Wednesday</div>
                         <div className='day-group-info'>
                             <div className='food-menu'>
                                 <img src={Food} />

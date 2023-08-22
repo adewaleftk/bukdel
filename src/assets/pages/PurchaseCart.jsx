@@ -7,6 +7,7 @@ import MiniSpag from '../images/spaghetti-icon.png'
 import usePackageStore from '../../store';
 import { useNavigate } from 'react-router-dom';
 import MobileDashboardNav from '../components/MobileDashboardNav';
+import { useEffect } from 'react';
 
 const PurchaseCart = () => {
 
@@ -28,6 +29,35 @@ const PurchaseCart = () => {
         logout(); 
         navigate('/');
     };
+    const user = usePackageStore(state => state.user);
+    const userId = user.user_id;
+    const userToken = usePackageStore((state) => state.userToken);
+
+    useEffect(() => {
+        fetchCart();
+    }, []);
+    async function fetchCart() {
+        try {
+          const response = await fetch(`http://bukdelbe.vercel.app/api/v1/carts/${userId}`, {
+            headers: {
+              'Content-Type': 'application/json',
+              'x_token': userToken,
+            },
+          });
+      
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log('Cart Loaded Successfully');
+            console.log(responseData);
+          } else {
+            console.error('Failed to fetch cart');
+            const responseData = await response.json();
+            console.log(responseData);
+          }
+        } catch (error) {
+          console.error('An error occurred:', error);
+        }
+      }
 
 
   return (

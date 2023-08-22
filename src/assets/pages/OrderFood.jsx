@@ -14,62 +14,31 @@ function OrderFood() {
   const logout = usePackageStore(state => state.logout);
   const navigate = useNavigate();
   const isMobile = window.innerWidth < 768;
+  const user = usePackageStore(state => state.user);
+  const userId = user.user_id;
+  const userToken = usePackageStore((state) => state.userToken);
 
   const handleLogout = () => {
     logout(); 
     navigate('/');
   };
-
-
-  // const foodItems = [
- 
-  //   { name: 'Spaghetti', price: 2000, image: Spaghetti },
-  //   { name: 'Fanta', price: 500, image:Spaghetti },
-  //   { name: 'Jollof Rice', price: 3000, image:Spaghetti },
-  //   { name: 'Fried Rice', price: 3500, image:Spaghetti },
-    
-
-  // ];
-
-
-  // const userToken = usePackageStore(state => state.userToken);
   const [foods, setFoods] = useState([]);
 
-useEffect(() => {
+
+  useEffect(() => {
     fetchFoods();
-    fetchCart();
 }, []);
 
-async function fetchCart() {
-  try {
-    const response = await fetch('http://bukdelbe.vercel.app/api/v1/carts/X-A89crea2jrsajRS9PLMNduz6kGAP9ivp', {
-      headers: {
-        'x_token': 'X-MisXoKw1Eh2fIJaa4CCP6YUqB9P51K4J',
-      },
-    });
 
-    if (response.ok) {
-      const responseData = await response.json();
-      console.log('Cart Loaded Successfully');
-      console.log(responseData);
-    } else {
-      console.error('Failed to fetch cart');
-      const responseData = await response.json();
-      console.log(responseData);
-    }
-  } catch (error) {
-    console.error('An error occurred:', error);
-  }
-}
 
 
 async function addToCart(food) {
   try {
-    const response = await fetch('https://bukdelbe.vercel.app/api/v1/carts/add/X-A89crea2jrsajRS9PLMNduz6kGAP9ivp', {
+    const response = await fetch(`https://bukdelbe.vercel.app/api/v1/carts/add/${userId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x_token': 'X-MisXoKw1Eh2fIJaa4CCP6YUqB9P51K4J',
+        'x_token': userToken,
       },
       body: JSON.stringify({
         "product_id": food.id  // Assuming "id" is the product ID of the selected food
@@ -87,11 +56,15 @@ async function addToCart(food) {
   }
 }
 
+
+
 async function fetchFoods() {
     try {
-        const response = await fetch('https://bukdelbe.vercel.app/api/v1/foods/get_foods/X-A89crea2jrsajRS9PLMNduz6kGAP9ivp', {
+        const response = await fetch(`https://bukdelbe.vercel.app/api/v1/foods/get_foods/${userId}`, {
             headers: {
-                'x_token': 'X-MisXoKw1Eh2fIJaa4CCP6YUqB9P51K4J',
+              'Content-Type': 'application/json',
+              'x_token': userToken,
+
             },
         });
 
@@ -99,10 +72,15 @@ async function fetchFoods() {
             const responseData = await response.json();
             console.log('Foods Loaded Successfully', responseData.data);
             setFoods(responseData.data);
+            console.log(user.user_id);
+            console.log(userToken)
+
         } else {
             console.error('Failed to fetch foods');
             const responseData = await response.json();
             console.log(responseData);
+            console.log(userToken)
+            console.log(user.user_id);
         }
     } catch (error) {
         console.error('An error occurred:', error);
@@ -141,38 +119,6 @@ async function fetchFoods() {
                   <div>Pasta and Grains</div>
                 </div>
               </div>
-              {/* <div className='foods'>
-                <div>
-                  <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-              </div> */}
             <div className='foods'>
               {foods && foods.map((food, index) => (
               <div key={index} onClick={() => addToCart(food)}>

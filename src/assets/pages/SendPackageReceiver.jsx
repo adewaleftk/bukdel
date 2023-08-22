@@ -11,8 +11,6 @@ function SendPackageReceiver() {
     const navigate = useNavigate();
     const receiverData = usePackageStore(state => state.receiverData);
     const setReceiverData = usePackageStore(state => state.setReceiverData);
-    const senderData = usePackageStore(state => state.senderData);
-    const setSenderData = usePackageStore(state => state.setSenderData);
 
     const logout = usePackageStore(state => state.logout);
 
@@ -132,26 +130,16 @@ function SendPackageReceiver() {
                     </div>
                 </div>
                 <div className='send-package-dashboard-info'>
-                    <div className='send-package-info-inputs'>
+                    {/* <div className='send-package-info-inputs'>
                         <label htmlFor="item-category">Item Category</label>
                         <select id="item-category" name="itemCategory" value={senderData.itemCategory} onChange={(event) => setSenderData({ itemCategory: event.target.value })} required>
                             <option value="perishable">Perishable</option>
                             <option value="non-perishable">Non-Perishable</option>
                         </select>
-                    </div>
+                    </div> */}
                     <div className='send-package-info-inputs'>
                         <label htmlFor="dropoff-note">Drop-Off Note</label>
                         <input type="text" id="dropoff-note" name="dropoffNote" value={receiverData.dropoffNote} onChange={(event) => setReceiverData({ dropoffNote: event.target.value })} placeholder='e.g Package is with my Gateman' required />
-                    </div>
-                </div>
-                <div className='send-package-dashboard-info'>
-                    <div className='send-package-info-inputs'>
-                        <label htmlFor="item-size">Item Size</label>
-                        <select id="item-size" name="itemSize" value={senderData.itemSize} onChange={(event) => setSenderData({ itemSize: event.target.value })} required>
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                        </select>
                     </div>
                     <div className='send-package-dashboard-save--next'>
                         <div className='send-package-info-inputs-save--address'>
@@ -162,6 +150,17 @@ function SendPackageReceiver() {
                             <button onClick={handleNextButtonClick}>Next</button>
                         </div>
                     </div>
+                </div>
+                <div className='send-package-dashboard-info'>
+                    {/* <div className='send-package-info-inputs'>
+                        <label htmlFor="item-size">Item Size</label>
+                        <select id="item-size" name="itemSize" value={senderData.itemSize} onChange={(event) => setSenderData({ itemSize: event.target.value })} required>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div> */}
+
                 </div>
             </div>
         </div>

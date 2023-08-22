@@ -26,7 +26,7 @@ function DelicaciesDashboard() {
     <div className='delicacies-dashboard'>
         {isMobile ? <MobileDashboardNav /> : <DashboardNav />}
         <div className='delicacies-dashboard-body'>
-        <div className='heading'>
+            <div className='heading'>
                 <div>
                     <NavLink to="/delicacies-dashboard">Delicacies</NavLink>
                 </div>
@@ -54,10 +54,11 @@ function DelicaciesDashboard() {
                     </NavLink>
                 </div>
                 <div>
-                    <img src={Track} />
-                    <h3>Track Your Food</h3>
-                    <p>Stay informed about the progress of your delivery with</p>
-                    <p>monitoring and regular update</p>
+                    <NavLink to="/delicacies-dashboard/history">
+                        <img src={Manage} />
+                        <h3>Order History</h3>
+                        <p>View your recent Orders</p>
+                    </NavLink>
                 </div>
             </div>
             <div className='food-plan'>
@@ -70,7 +71,7 @@ function DelicaciesDashboard() {
                     </NavLink>
                 </div>
                 <div>
-                    <img src={Manage} />
+                    <img src={Track} />
                     <h3>Manage Your Food Plan</h3>
                     <p>Manage your food plans.</p>
                 </div>
