@@ -146,8 +146,8 @@ function Dashboard() {
                     </div>
                 </div>
                 <div className="notifications">
-                    <h2>Recent Notifications</h2>
-                    <div className="notifications-details">
+                    <h2>Recent Transactions</h2>
+                    {/* <div className="notifications-details">
                         <div className="notifications-details-info">
                             <div>Your package has been delivered</div>
                             <div>13th April, 2023</div>
@@ -206,7 +206,7 @@ function Dashboard() {
                             <div>your wallet with &#8358;5,000</div>
                             <div>1:00PM</div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {showPopup && (
