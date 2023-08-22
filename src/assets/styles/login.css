@@ -195,8 +195,10 @@
     /* height: 100vh; */
     width: 40vw;
     /* display: none; */
-
 }
+
+
+
 }
 
 @media only screen and (min-width: 961px) {
@@ -352,5 +354,9 @@
   color: red;
   margin-top: 5px;
   font-size: 14px;
+}
+
+input:invalid {
+  border: 1px solid red;
 }
 

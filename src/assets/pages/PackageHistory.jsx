@@ -76,49 +76,45 @@ function PackageHistory() {
                 <p className='package-history--heading'>Recent Orders</p>
                 <p className='package-history--sub-heading'>View your recent and past orders.</p>
                 <div className='package-history--contents-group'>
-                        {packageHistory.length === 0 ? (
-                          <p>No transactions available.</p>
-                        ) : (
-                          <ul>
-                            {packageHistory.map((packages) => (
-                              <li key={packages.id}>
-                                <div className='package-history--contents'>
-                                  <img src={Vector} />
-                                  <div>
-                                    <p>From {packages.pick_up_address},{packages.state} State</p>
-                                    <p>To {packages.drop_off_address},{packages.drop_off_city} {packages.drop_off_state} State</p>
-                                  </div>
-                                  <button onClick={() => handleOpenPopup(packages)}>View</button>
+                      {packageHistory.length === 0 ? (
+                        <p>No transactions available.</p>
+                      ) : (
+                        <ul>
+                          {packageHistory.map((packages) => (
+                            <li key={packages.id}>
+                              <div className='package-history--contents'>
+                                <img src={Vector} />
+                                <div>
+                                  <p>From {packages.pick_up_address},{packages.state} State</p>
+                                  <p>To {packages.drop_off_address},{packages.drop_off_city} {packages.drop_off_state} State</p>
                                 </div>
-                              </li>
-                            ))}
-                          </ul>
-                          
-                        )}
-
-                  
+                                <button onClick={() => handleOpenPopup(packages)}>View</button>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>    
+                      )} 
                 </div>
                 {isPopupOpen && selectedPackage && (
-  <div className='popup'>
-    <div className='popup-content'>
-      <span className='close-popup' onClick={() => setIsPopupOpen(false)}>
-        &times;
-      </span>
-      <h2>Package Details</h2>
-      <p>Name of Sender: {selectedPackage.sender_name}</p>
-      <p>Sender&apos;s Phone Number: {selectedPackage.sender_phone}</p>
-      <p>Alternative Phone Number: {selectedPackage.sender_alternative_phone}</p>
-      <p>Pick-Up Address: {selectedPackage.pick_up_address},{selectedPackage.city},{selectedPackage.State} State</p>
-      <p>Pick-Up Date: {selectedPackage.pickup_date}</p>
-      <p className='receiver-name'>Name of Receiver: {selectedPackage.receiver_name}</p>
-      <p>Receiver&apos;s Phone Number: {selectedPackage.receiver_phone}</p>
-      <p>Alternative Phone Number: {selectedPackage.receiver_alternative_phone}</p>
-      <p>Drop-Off Address: {selectedPackage.drop_off_address},{selectedPackage.drop_off_ciy},{selectedPackage.drop_off_state} State</p>
-      <p>Drop-Off Date: {selectedPackage.drop_off_date}</p>
-    </div>
-  </div>
-)}
-
+                <div className='popup'>
+                  <div className='popup-content'>
+                    <span className='close-popup' onClick={() => setIsPopupOpen(false)}>
+                      &times;
+                    </span>
+                      <h2>Package Details</h2>
+                      <p>Name of Sender: {selectedPackage.sender_name}</p>
+                      <p>Sender&apos;s Phone Number: {selectedPackage.sender_phone}</p>
+                      <p>Alternative Phone Number: {selectedPackage.sender_alternative_phone}</p>
+                      <p>Pick-Up Address: {selectedPackage.pick_up_address},{selectedPackage.city},{selectedPackage.State} State</p>
+                      <p>Pick-Up Date: {selectedPackage.pickup_date}</p>
+                      <p className='receiver-name'>Name of Receiver: {selectedPackage.receiver_name}</p>
+                      <p>Receiver&apos;s Phone Number: {selectedPackage.receiver_phone}</p>
+                      <p>Alternative Phone Number: {selectedPackage.receiver_alternative_phone}</p>
+                      <p>Drop-Off Address: {selectedPackage.drop_off_address},{selectedPackage.drop_off_ciy},{selectedPackage.drop_off_state} State</p>
+                      <p>Drop-Off Date: {selectedPackage.drop_off_date}</p>
+                    </div>
+                  </div>
+                )}
             </div>
         </div>
     </div>

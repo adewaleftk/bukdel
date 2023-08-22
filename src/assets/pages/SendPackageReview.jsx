@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import MobileDashboardNav from '../components/MobileDashboardNav';
 
 function ReviewPage() {
+    const user = usePackageStore(state => state.user);
+    const userId = user.user_id;
+    const userToken = usePackageStore(state => state.userToken);
     const isMobile = window.innerWidth < 768;
     const senderData = usePackageStore(state => state.senderData);
     const receiverData = usePackageStore(state => state.receiverData);
@@ -28,12 +31,46 @@ function ReviewPage() {
     }
 
     const handleProceedToPay = () => {
+        sendItemsToServer();
         setShowPopup(true);
     };
 
     const handleClosePopup = () => {
         setShowPopup(false);
     }
+
+
+    async function sendItemsToServer() {
+
+        try {
+          const response = await fetch(`https://bukdelbe.vercel.app/api/v1/logistics/send_item/${userId}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x_token': userToken,
+            },
+            body: JSON.stringify({
+              senderData,
+              receiverData,
+            }),
+          });
+      
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log('Items sent successfully:', responseData);
+            // Handle success, display a success message, update UI, etc.
+          } else {
+            console.error('Failed to send items');
+            const errorData = await response.json();
+            console.log('Error data:', errorData);
+            // Handle failure, display an error message, update UI, etc.
+          }
+      
+        } catch (error) {
+          console.error('An error occurred:', error);
+          // Handle network error or other exceptions
+        }
+      }
 
     return (
         <div className='send-package-review'>

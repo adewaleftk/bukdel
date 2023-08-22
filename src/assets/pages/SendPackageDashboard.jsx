@@ -133,6 +133,7 @@ function SendPackageDashboard() {
                         <select id="item-category" name="itemCategory" value={senderData.itemCategory} onChange={(event) => setSenderData({ itemCategory: event.target.value })} required>
                             <option value="perishable">Perishable</option>
                             <option value="non-perishable">Non-Perishable</option>
+                            <option value="fragile">Fragile</option>
                         </select>
                     </div>
                     <div className='send-package-info-inputs'>
