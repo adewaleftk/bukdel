@@ -21,6 +21,7 @@ function Dashboard() {
     const [accountName, setAccountName] = useState('');
     const [bankName, setBankName] = useState('');
     const [message, setMessage] = useState('');
+    const [transactionHistory, setTransactionHistory] = useState([]);
     
 
     useEffect(() => {
@@ -92,10 +93,36 @@ function Dashboard() {
         }
       }
 
+      async function getOrderHistory() {
+        try {
+          const response = await fetch(`https://bukdelbe.vercel.app/api/v1/transactions/${userId}`, {
+            headers: {
+              'x_token': userToken,
+            },
+          });
+    
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log('Transaction History:', responseData.data);
+            setTransactionHistory(responseData.data);
+          } else {
+            console.error('Failed to fetch transaction history');
+            const responseData = await response.json();
+            console.log(responseData);
+          }
+        } catch (error) {
+          console.error('An error occurred:', error);
+        }
+      }
 
-  useEffect(() => {
-    getWalletBalance();
-}, []);
+
+    useEffect(() => {
+        getWalletBalance();
+    }, []);
+
+    useEffect(() => {
+        getOrderHistory();
+    }, []);
       
 
     useEffect(() => {
@@ -207,6 +234,20 @@ function Dashboard() {
                             <div>1:00PM</div>
                         </div>
                     </div> */}
+                        {transactionHistory.length === 0 ? (
+                        <p>No transactions available.</p>
+                    ) : (
+                        <ul>
+                        {transactionHistory.map((transaction) => (
+                            <li key={transaction.id}>
+                            <p>Transaction ID: {transaction.id}</p>
+                            <p>Amount: {transaction.name}</p>
+                            <p>Amount: {transaction.price}</p>
+                            <button onClick={() => openPopup(transaction.id)}>Track Order</button>
+                            </li>
+                        ))}
+                        </ul>
+                    )}
                 </div>
             </div>
             {showPopup && (

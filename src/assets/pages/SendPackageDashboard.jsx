@@ -26,36 +26,7 @@ function SendPackageDashboard() {
     };
     
 
-    const handleSenderStateChange = (event) => {
-        const senderState = event.target.value;
-        setSenderData({ senderState });
-        const senderStateObj = statesAndCities.find(state => state.name === senderState);
-        
-        const cityDropdown = document.getElementById('sender-city');
-        cityDropdown.innerHTML = ''; // Clear previous city options
-        if (senderStateObj) {
-            setSenderData({ senderCity: senderStateObj.cities[0] });
-            senderStateObj.cities.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                cityDropdown.appendChild(option);
-            });
-        }
-    };
-    
-
-    const statesAndCities = [
-        {
-          name: 'State A',
-          cities: ['City 1', 'City 2', 'City 3']
-        },
-        {
-          name: 'State B',
-          cities: ['City X', 'City Y', 'City Z']
-        },
-        // Add more states and cities as needed
-      ];
+  
       
   return (
     <div className='send-package-dashboard'>
@@ -93,27 +64,11 @@ function SendPackageDashboard() {
                     <div className='state--city'>
                         <div className='send-package-info-inputs'>
                             <label htmlFor="sender-state">State</label>
-                            <select
-                                id="sender-state"
-                                name="senderState"
-                                value={senderData.senderState}
-                                onChange={handleSenderStateChange} 
-                                required
-                            >
-                                <option value="">Select a State</option>
-                                {statesAndCities.map(state => (
-                                    <option key={state.name} value={state.name}>
-                                        {state.name}
-                                    </option>
-                                ))}
-                            </select>
+                            <input type="text" id='sender-state' name='senderState' value="Lagos"  onChange={(event) => setSenderData({ senderState: event.target.value })} />
                         </div>
                         <div className='send-package-info-inputs'>
                             <label htmlFor="sender-city">City</label>
-                            <select id="sender-city" name="senderCity" value={senderData.senderCity} onChange={(event) => setSenderData({ selectedCity: event.target.value })} required>
-                                <option value="">Select a City</option>
-                                {/* Dynamically populate the city options based on selected state */}
-                            </select>
+                            <input type="text" id='sender-city' name='senderCity' value={senderData.senderCity}  onChange={(event) => setSenderData({ senderCity: event.target.value })} />
                         </div>
                     </div>
                 </div>

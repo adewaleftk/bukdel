@@ -167,6 +167,16 @@ h3 {
     color: #ffffff;
 }
 
+.buttons button {
+    background: #8745FD;
+    width: 270px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+}
+
 @media only screen and (max-width: 768px) {
     .purchase-cart {
         display: flex;
@@ -343,4 +353,15 @@ h3 {
         text-align: center;
         color: #ffffff;
     }
+
+    .buttons button {
+        background: #8745FD;
+        width: 270px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        color: #ffffff;
+        border: none;
+    }
+    
 }

@@ -151,6 +151,14 @@ a {
     margin-top: 10px;
 }
 
+.foods button {
+    border: 2px solid #7631E6;
+    background: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
 @media only screen and (max-width: 768px) {
     .orderfood {
         display: flex;
@@ -312,6 +320,14 @@ a {
         width: 40px;
         margin-top: 10px;
     }
+
+    .foods button {
+        border: 2px solid #7631E6;
+        background: #ffffff;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+    }    
 
 }
   

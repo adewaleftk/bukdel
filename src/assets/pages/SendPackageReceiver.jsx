@@ -27,37 +27,6 @@ function SendPackageReceiver() {
     };
     
 
-    const handleReceiverStateChange = (event) => {
-        const receiverState = event.target.value;
-        setReceiverData({ receiverState });
-        const receiverStateObj = statesAndCities.find(state => state.name === receiverState);
-        
-        const cityDropdown = document.getElementById('receiver-city');
-        cityDropdown.innerHTML = ''; // Clear previous city options
-    
-        if (receiverStateObj) {
-            setReceiverData({ receiverCity: receiverStateObj.cities[0] });
-            receiverStateObj.cities.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                cityDropdown.appendChild(option);
-            });
-        }
-    };
-    
-
-    const statesAndCities = [
-        {
-          name: 'State A',
-          cities: ['City 1', 'City 2', 'City 3']
-        },
-        {
-          name: 'State B',
-          cities: ['City X', 'City Y', 'City Z']
-        },
-        // Add more states and cities as needed
-      ];
       
   return (
     <div className='send-package-dashboard'>
@@ -95,27 +64,11 @@ function SendPackageReceiver() {
                     <div className='state--city'>
                         <div className='send-package-info-inputs'>
                             <label htmlFor="receiver-state">State</label>
-                            <select
-                                id="receiver-state"
-                                name="receiverState"
-                                value={receiverData.receiverState}
-                                onChange={handleReceiverStateChange}
-                                required
-                            >
-                                <option value="">Select a State</option>
-                                {statesAndCities.map(state => (
-                                    <option key={state.name} value={state.name}>
-                                        {state.name}
-                                    </option>
-                                ))}
-                            </select>
+                            <input type="text" id='receiver-state' name='receiverState' value="Lagos"  onChange={(event) => setReceiverData({ receiverState: event.target.value })} />
                         </div>
                         <div className='send-package-info-inputs'>
                             <label htmlFor="receiver-city">City</label>
-                            <select id="receiver-city" name="receiverCity" value={receiverData.receiverCity} onChange={(event) => setReceiverData({ receiverCity: event.target.value })} required>
-                                <option value="">Select a City</option>
-                                {/* Dynamically populate the city options based on selected state */}
-                            </select>
+                            <input type="text" id='receiver-city' name='receiverCity' value={receiverData.receiverCity}  onChange={(event) => setReceiverData({ receiverCity: event.target.value })} />
                         </div>
                     </div>
                 </div>
