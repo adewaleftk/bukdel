@@ -75,6 +75,7 @@ async function addToCart(product_id) {
 
     if (response.ok) {
       console.log('Food added to cart successfully');
+      fetchCart();
     } else {
       console.error('Failed to add food to cart');
     }
