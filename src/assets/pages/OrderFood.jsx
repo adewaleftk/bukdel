@@ -18,6 +18,8 @@ function OrderFood() {
   const userId = user.user_id;
   const userToken = usePackageStore((state) => state.userToken);
 
+  const totalItemsInCart = cartItems.length;
+
   const handleLogout = () => {
     logout(); 
     navigate('/');
@@ -29,10 +31,36 @@ function OrderFood() {
     fetchFoods();
 }, []);
 
+useEffect(() => {
+  fetchCart();
+}, []);
 
 
+async function fetchCart() {
+  try {
+    const response = await fetch(`https://bukdelbe.vercel.app/api/v1/carts/${userId}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'x_token': userToken,
+      },
+    });
 
-async function addToCart(food) {
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log('Cart Loaded Successfully');
+      console.log(responseData.data);
+      usePackageStore.setState({ cartItems: responseData.data });
+    } else {
+      console.error('Failed to fetch cart');
+      const responseData = await response.json();
+      console.log(responseData);
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+}
+
+async function addToCart(product_id) {
   try {
     const response = await fetch(`https://bukdelbe.vercel.app/api/v1/carts/add/${userId}`, {
       method: 'POST',
@@ -41,13 +69,12 @@ async function addToCart(food) {
         'x_token': userToken,
       },
       body: JSON.stringify({
-        "product_id": food.id  // Assuming "id" is the product ID of the selected food
+        "product_id": product_id
       }),
     });
 
     if (response.ok) {
       console.log('Food added to cart successfully');
-      // Optionally, you can update the cart state here
     } else {
       console.error('Failed to add food to cart');
     }
@@ -93,13 +120,13 @@ async function fetchFoods() {
       <div className='orderfood-body'>
           <div className='heading'>
                 <div>
-                    <NavLink to="/delicacies-dashboard">Delicacies &gt; Order Food</NavLink>
+                    <NavLink to="/delicacies-dashboard">Order Food</NavLink>
                 </div>
                 <div className='heading-cart'>
                     <div className='cart-group'>
                       <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">
-                        <img src={Cart} className="cart-image" /> {cartItems.length > 0 && <span className='cart-count'>{cartItems.length}</span>}
-                        
+                        <img src={Cart} className="cart-image" /> 
+                        <span className="cart-count">{totalItemsInCart}</span>
                       </NavLink>
                       <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">Cart</NavLink>
                     </div>
@@ -119,86 +146,19 @@ async function fetchFoods() {
                   <div>Pasta and Grains</div>
                 </div>
               </div>
-            <div className='foods'>
-              {foods && foods.map((food, index) => (
-              <div key={index} onClick={() => addToCart(food)}>
-                 <img src={food.image} alt={food.name} />
-                {/* <p>{food.name}</p>
-                <p>&#8358;{food.price}</p> */}
-                      <p>{food.name}</p>
-                      <p>Price: &#8358;{food.price}</p>
-                      <p>In Stock: {food.in_stock}</p>
-                      <p>Description: {food.description}</p>
-              </div>
-            ))}
-          </div>
-              {/* <div className='foods'>
-                <div>
-                  <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-              </div>
               <div className='foods'>
-                <div>
-                  <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-                <div>
-                <img src={Spaghetti} />
-                  <p>Spaghetti</p>
-                  <p>&#8358;1500</p>
-                </div>
-              </div> */}
-              
+                {foods && foods.map((food, index) => (
+                  <div key={index}>
+                    <img src={food.image} alt={food.name} />
+                    <p>{food.name}</p>
+                    <p>Price: &#8358;{food.price}</p>
+                    <p>In Stock: {food.in_stock}</p>
+                    <p>Description: {food.description}</p>
+                    <button onClick={() => addToCart(food.product_id)}>Add to Cart</button>
+                  </div>
+                ))}
+              </div>
             </div>
-
       </div>
     </div>
   )

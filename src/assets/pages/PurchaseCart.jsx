@@ -3,25 +3,20 @@ import DashboardNav from '../components/DashboardNav'
 import { NavLink } from 'react-router-dom';
 import Cart from '../images/cart.png'
 import Delete from '../images/delete-icon.png'
-import MiniSpag from '../images/spaghetti-icon.png'
 import usePackageStore from '../../store';
 import { useNavigate } from 'react-router-dom';
 import MobileDashboardNav from '../components/MobileDashboardNav';
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 const PurchaseCart = () => {
 
 
     const isMobile = window.innerWidth < 768;
-    const increaseQuantity = usePackageStore(state => state.increaseQuantity);
-    const decreaseQuantity = usePackageStore(state => state.decreaseQuantity);
-    const cartItems = usePackageStore((state) => state.cartItems);
-    const removeFromCart = usePackageStore(state => state.removeFromCart);
-
-    const subTotal = cartItems.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
-    const deliveryFee = "";
-    const totalAmount = subTotal + deliveryFee;
-
+    const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const deliveryFee = 3000;
+    const totalFee = deliveryFee + totalPrice ;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
 
@@ -36,9 +31,71 @@ const PurchaseCart = () => {
     useEffect(() => {
         fetchCart();
     }, []);
+
+    async function deleteFromCart(product_id) {
+      try {
+        const response = await fetch(`https://bukdelbe.vercel.app/api/v1/carts/delete/${userId}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'x_token': userToken,
+          },
+          body: JSON.stringify({
+            "cart_id": product_id
+          }),
+        });
+    
+        if (response.ok) {
+          console.log('Item removed from cart');
+          fetchCart();
+        } else {
+          console.error('Failed to remove item from cart');
+          const errorData = await response.json();
+          console.log('Error data:', errorData);
+          // Handle failure, display an error message, update UI, etc.
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+        // Handle network error or other exceptions
+      }
+    }
+    
+    async function checkOut() {
+      try {
+        const response = await fetch(`https://bukdelbe.vercel.app/api/v1/orders/checkout/${userId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x_token': userToken,
+          },
+          body: JSON.stringify({
+            cartItems,
+            totalPrice,
+            deliveryFee,
+            totalFee,
+          }),
+        });
+  
+        if (response.ok) {
+          console.log('Checkout successful');
+          usePackageStore.setState({ cartItems: [] });
+          setCartItems(0);
+          navigate('/delicacies-dashboard/orderfood-dashboard/purchase/checkout');
+        } else {
+          console.error('Checkout failed');
+          const errorData = await response.json();
+          console.log('Error data:', errorData);
+          // Handle failure, display an error message, update UI, etc.
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+        // Handle network error or other exceptions
+      }
+    }
+
     async function fetchCart() {
         try {
-          const response = await fetch(`http://bukdelbe.vercel.app/api/v1/carts/${userId}`, {
+          const response = await fetch(`https://bukdelbe.vercel.app/api/v1/carts/${userId}`, {
             headers: {
               'Content-Type': 'application/json',
               'x_token': userToken,
@@ -48,7 +105,9 @@ const PurchaseCart = () => {
           if (response.ok) {
             const responseData = await response.json();
             console.log('Cart Loaded Successfully');
-            console.log(responseData);
+            setTotalPrice(responseData.total);
+            console.log(responseData)
+            setCartItems(responseData.data)
           } else {
             console.error('Failed to fetch cart');
             const responseData = await response.json();
@@ -79,36 +138,26 @@ const PurchaseCart = () => {
             </div>
             <h2>Cart</h2>
             <div className='cart-list'>
-                <h3>Purchase Order Cart</h3>
-                <div className='cart-list-heading'>
-                    <div>Product</div>
-                    <div>Unit Price(&#8358;)</div>
-                    <div>Quantity</div>
-                    <div>Total Price(&#8358;)</div>
-                    <div>Action</div>
-                </div>
-                {cartItems.map((item, index) => (
-                    <div key={index} className="cart-item">
-                        <div><span className='item-name'><img src={MiniSpag} />{item.name}</span></div>
-                        <div><span>&#8358;{item.price}</span></div>
-                        <div className='toggle-quantity'><button  onClick={() => decreaseQuantity(item)}>-</button>
-                        <span>{item.quantity}</span>
-                        <button  onClick={() => increaseQuantity(item)}>+</button></div>
-                        <div><span>&#8358;{item.total}</span></div>
-                        <div><button onClick={() => removeFromCart(item)}><img src={Delete} /></button></div>
+                <h3>Purchase Order Cart</h3>                
+                  {cartItems.map((item) => (
+                    <div key={item.id} className="cart-item">
+                      <div><span className='item-name'><img src={item.image} alt={item.name} />{item.name}</span></div>
+                      <div><span>&#8358;{item.price}</span></div>
+                      <p>{item.qty}</p>
+                      <div><button onClick={() => deleteFromCart(item.id)}><img src={Delete} /></button></div>
                     </div>
-                ))}
-                <div className='total-buttons'>
-                    <div className="total">
-                        <span>Sub-Total: &#8358;{subTotal}</span>
-                        <span>Delivery Fee: &#8358;{deliveryFee}</span>
-                        <span>Total Amount: &#8358;{totalAmount}</span>
-                    </div>
-                    <div className="buttons">
-                        <NavLink to="/delicacies-dashboard/orderfood-dashboard">Continue to Shopping</NavLink>
-                        <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase/checkout">Checkout</NavLink>
-                    </div>
-                </div>
+                  ))}
+            </div>
+            <div className='total-buttons'>
+              <div className='total'>
+                <span>Sub-Total: &#8358;{totalPrice}</span>
+                <span>Delivery Fee: &#8358;{deliveryFee}</span>
+                <span>Total Amount: &#8358;{totalFee}</span>
+              </div>
+              <div className='buttons'>
+                <NavLink to="/delicacies-dashboard/orderfood-dashboard">Continue to Shopping</NavLink>
+                <button onClick={checkOut}>Checkout</button>
+              </div>
             </div>
       </div>
     </div>

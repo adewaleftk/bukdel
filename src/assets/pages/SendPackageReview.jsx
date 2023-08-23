@@ -14,7 +14,7 @@ function ReviewPage() {
     const isMobile = window.innerWidth < 768;
     const senderData = usePackageStore(state => state.senderData);
     const receiverData = usePackageStore(state => state.receiverData);
-
+    const [sendError, setSendError] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate();
 
@@ -50,8 +50,24 @@ function ReviewPage() {
               'x_token': userToken,
             },
             body: JSON.stringify({
-              senderData,
-              receiverData,
+                sender_name: senderData.senderName,
+                sender_phone: senderData.senderNumber,
+                sender_alternative_phone: senderData.senderAltNumber,
+                pick_up_address: senderData.pickupAddress,
+                state: senderData.senderState,
+                city: senderData.senderCity,
+                pick_up_date: senderData.pickupDate,
+                item_categoty: senderData.itemCategory,
+                pick_up_note: senderData.pickupNote,
+                item_size: senderData.itemSize,
+                receiver_name: receiverData.receiverName,
+                receiver_phone: receiverData.receiverNumber,
+                receiver_alternative_phone: receiverData.receiverAltNumber,
+                drop_off_address: receiverData.dropoffAddress,
+                drop_off_state: receiverData.receiverState,
+                drop_off_city: receiverData.receiverCity,
+                drop_off_date: receiverData.deliveryDate,
+                drop_off_note: receiverData.dropoffNote
             }),
           });
       
@@ -62,7 +78,8 @@ function ReviewPage() {
           } else {
             console.error('Failed to send items');
             const errorData = await response.json();
-            console.log('Error data:', errorData);
+            console.log(errorData)
+            setSendError(errorData.errorMessage)
             // Handle failure, display an error message, update UI, etc.
           }
       
@@ -106,6 +123,7 @@ function ReviewPage() {
                         <NavLink to="/logistics-dashboard/send">Edit Details</NavLink>
                         <button className='proceed-to-pay' onClick={handleProceedToPay}>Proceed to Pay</button>
                     </div>
+
                 </div>
                 {showPopup && (
                 <div className='popup'>
@@ -131,6 +149,7 @@ function ReviewPage() {
                             <button onClick={proceedToPay}>Proceed to Pay</button>
                             <button onClick={handleClosePopup}>Close</button>
                         </div>
+                        {sendError && <p className="error-message">{sendError}</p>}
                     </div>
                 </div>
             )}

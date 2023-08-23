@@ -106,7 +106,7 @@ function PackageHistory() {
                       <p>Sender&apos;s Phone Number: {selectedPackage.sender_phone}</p>
                       <p>Alternative Phone Number: {selectedPackage.sender_alternative_phone}</p>
                       <p>Pick-Up Address: {selectedPackage.pick_up_address},{selectedPackage.city},{selectedPackage.State} State</p>
-                      <p>Pick-Up Date: {selectedPackage.pickup_date}</p>
+                      <p>Pick-Up Date: {selectedPackage.pick_up_date}</p>
                       <p className='receiver-name'>Name of Receiver: {selectedPackage.receiver_name}</p>
                       <p>Receiver&apos;s Phone Number: {selectedPackage.receiver_phone}</p>
                       <p>Alternative Phone Number: {selectedPackage.receiver_alternative_phone}</p>

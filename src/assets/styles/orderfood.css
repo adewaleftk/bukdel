@@ -180,14 +180,19 @@ a {
         align-items: center;
     }
 
+    .cart-group a:nth-child(2) {
+        border: 1px solid red;
+        display: none;
+    }
+
     .heading-cart div:nth-child(1) {
-        margin-right: 20px;
+        margin-right: 5px;
     }
 
     .orderfood-body > .heading {
-        display: none;
+        display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         font-family: Montserrat;
         font-size: 20px;

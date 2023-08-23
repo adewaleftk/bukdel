@@ -3,61 +3,10 @@ import create from 'zustand';
 const usePackageStore = create((set) => ({
   cartItems: [],
 
-  addToCart: (item) => {
-    set((state) => {
-      const existingItem = state.cartItems.find(cartItem => cartItem.name === item.name);
-      if (existingItem) {
-        const updatedItem = {
-          ...existingItem,
-          quantity: existingItem.quantity + 1,
-          total: (existingItem.quantity + 1) * existingItem.price,
-        };
-        const updatedCartItems = state.cartItems.map(cartItem => cartItem.name === item.name ? updatedItem : cartItem);
-        return { cartItems: updatedCartItems };
-      } else {
-        const newItem = { ...item, quantity: 1, total: item.price };
-        return { cartItems: [...state.cartItems, newItem] };
-      }
-    });
-  },
 
-  increaseQuantity: (item) => {
-    set((state) => {
-      const updatedItem = {
-        ...item,
-        quantity: item.quantity + 1,
-        total: (item.quantity + 1) * item.price,
-      };
-      const updatedCartItems = state.cartItems.map(cartItem =>
-        cartItem.name === item.name ? updatedItem : cartItem
-      );
-      return { cartItems: updatedCartItems };
-    });
-  },
 
-  decreaseQuantity: (item) => {
-    set((state) => {
-      if (item.quantity > 1) {
-        const updatedItem = {
-          ...item,
-          quantity: item.quantity - 1,
-          total: (item.quantity - 1) * item.price,
-        };
-        const updatedCartItems = state.cartItems.map(cartItem =>
-          cartItem.name === item.name ? updatedItem : cartItem
-        );
-        return { cartItems: updatedCartItems };
-      } else {
-        return state;
-      }
-    });
-  },
 
-  removeFromCart: (item) => {
-    set((state) => ({
-      cartItems: state.cartItems.filter(cartItem => cartItem.name !== item.name),
-    }));
-  },
+
 
   user: null, // Initial user state is null
 
