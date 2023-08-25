@@ -1,12 +1,31 @@
 .video-container {
+
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px; /* Adjust the height as per your requirement */
+    height: 500px;
   }
   
   .video-container iframe {
-    width: 70%; /* Adjust the width as per your requirement */
-    height: 70%; /* Adjust the height as per your requirement */
+    width: 70%; 
+    height: 100%; 
+  }
+
+  @media only screen and (max-width: 768px) {
+    .video-container {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 250px;
+    }
+    
+    .video-container iframe {
+      width: 70%; 
+      height: 100%; 
+    }
   }
   

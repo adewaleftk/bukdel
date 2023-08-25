@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import Intro from "../components/Intro";
 import WhatPeopleSay from "../components/WhatPeopleSay";
-import Faq from "../components/Faq";
+// import Faq from "../components/Faq";
 import Footer from "../components/Footer";
 
 function Homepage() {
@@ -14,7 +14,7 @@ function Homepage() {
         <Services />
         <Intro />
         <WhatPeopleSay />
-        <Faq />
+        {/* <Faq /> */}
         <Footer />
     </div>
   )

@@ -10,8 +10,11 @@ import usePackageStore from '../../store'
 import { useNavigate } from 'react-router-dom'
 import MobileDashboardNav from '../components/MobileDashboardNav'
 
+
 function DelicaciesDashboard() {
+
     const cartItems = usePackageStore((state) => state.cartItems);
+    const totalItemsInCart = cartItems.length;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
     const isMobile = window.innerWidth < 768;
@@ -28,13 +31,13 @@ function DelicaciesDashboard() {
         <div className='delicacies-dashboard-body'>
             <div className='heading'>
                 <div>
-                    <NavLink to="/delicacies-dashboard">Delicacies</NavLink>
+                    <NavLink to="/delicacies-dashboard">Order Food</NavLink>
                 </div>
                 <div className='start-food-heading-cart'>
                     <div className='start-food-plan-cart-group'>
                       <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">
-                        <img src={Cart} className="cart-image" /> {cartItems.length > 0 && <span className='cart-count'>{cartItems.length}</span>}
-                        
+                        <img src={Cart} className="cart-image" /> 
+                        <span className="cart-count">{totalItemsInCart}</span>
                       </NavLink>
                       <NavLink to="/delicacies-dashboard/orderfood-dashboard/purchase">Cart</NavLink>
                     </div>

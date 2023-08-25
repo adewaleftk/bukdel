@@ -16,6 +16,48 @@ function GetEstimate() {
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
 
+
+    const [isSenderAddressValid, setIsSenderAddressValid] = useState(true);
+    const [isItemCategoryValid, setIsItemCategoryValid] = useState(true);
+    const [isSenderStateValid, setIsSenderStateValid] = useState(true);
+    const [isSenderCityValid, setIsSenderCityValid] = useState(true);
+    const [isItemSizeValid, setIsItemSizeValid] = useState(true);
+    const [isReceiverAddressValid, setIsReceiverAddressValid] = useState(true);
+    const [isDeliveryDateValid, setIsDeliveryDateValid] = useState(true);
+    const [isReceiverStateValid, setIsReceiverStateValid] = useState(true);
+    const [isReceiverCityValid, setIsReceiverCityValid] = useState(true);
+
+
+    const validateForm = () => {
+        const isSenderAddressValid = estimateData.estimatePickupAddress.trim() !== '';
+        const isItemCategoryValid = estimateData.estimateItemCategory.trim() !== '';
+        const isSenderStateValid = estimateData.estimatePickupState.trim() !== '';
+        const isSenderCityValid = estimateData.estimatePickupCity.trim() !== '';
+        const isItemSizeValid = estimateData.estimateItemCategory.trim() !== '';  
+        const isReceiverAddressValid = estimateData.estimateDropoffAddress.trim() !== '';
+        const isDeliveryDateValid = estimateData.estimateDeliveryDate.trim() !=='';
+        const isReceiverStateValid = estimateData.estimateDropoffState.trim() !== '';
+        const isReceiverCityValid = estimateData.estimateDropoffCity.trim() !== '';
+
+
+
+        setIsSenderAddressValid(isSenderAddressValid);
+        setIsItemCategoryValid(isItemCategoryValid);
+        setIsSenderStateValid(isSenderStateValid);
+        setIsSenderCityValid(isSenderCityValid);
+        setIsItemSizeValid(isItemSizeValid);
+        setIsReceiverAddressValid(isReceiverAddressValid);
+        setIsDeliveryDateValid(isDeliveryDateValid);
+        setIsReceiverStateValid(isReceiverStateValid);
+        setIsReceiverCityValid(isReceiverCityValid);
+
+        
+        return isSenderAddressValid && isItemCategoryValid && isSenderStateValid 
+        && isSenderCityValid && isItemSizeValid && isReceiverAddressValid 
+        && isDeliveryDateValid && isReceiverStateValid && isReceiverCityValid
+      };
+      
+
     const handleLogout = () => {
       logout(); 
       navigate('/');
@@ -30,60 +72,12 @@ function GetEstimate() {
         setShowPopup(false);
     }
 
-    const handleEstimatePickupStateChange = (event) => {
-        const estimatePickupState = event.target.value;
-        setEstimateData({ estimatePickupState });
-        const estimatePickupStateObj = statesAndCities.find(state => state.name === estimatePickupState);
-        
-        const cityDropdown = document.getElementById('estimate-pickup-city');
-        cityDropdown.innerHTML = ''; // Clear previous city options
-    
-        if (estimatePickupStateObj) {
-            setEstimateData({ estimatePickupCity: estimatePickupStateObj.cities[0] });
-            estimatePickupStateObj.cities.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                cityDropdown.appendChild(option);
-            });
-        }
-    };
 
     function proceedToSendPackage() {
         //
     }
 
-    const handleEstimateDropoffStateChange = (event) => {
-        const estimatDropoffState = event.target.value;
-        setEstimateData({ estimatDropoffState });
-        const estimateDropoffStateObj = statesAndCities.find(state => state.name === estimatDropoffState);
-        
-        const cityDropdown = document.getElementById('estimate-dropoff-city');
-        cityDropdown.innerHTML = ''; // Clear previous city options
-    
-        if (estimateDropoffStateObj) {
-            setEstimateData({ estimateDropoffCity: estimateDropoffStateObj.cities[0] });
-            estimateDropoffStateObj.cities.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.textContent = city;
-                cityDropdown.appendChild(option);
-            });
-        }
-    };      
 
-    const statesAndCities = [
-        {
-          name: 'State A',
-          cities: ['City 1', 'City 2', 'City 3']
-        },
-        {
-          name: 'State B',
-          cities: ['City X', 'City Y', 'City Z']
-        },
-        // Add more states and cities as needed
-      ];
-      
 
   return (
     <div className='dashboard-get-estimate'>
@@ -120,27 +114,11 @@ function GetEstimate() {
                     <div className='get-estimate--delivery-details-inputs-child'>
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-pickup-state">State</label>
-                            <select
-                                id="estimate-pickup-state"
-                                name="estimatePickupState"
-                                value={estimateData.estimatePickupState}
-                                onChange={handleEstimatePickupStateChange}
-                                required
-                            >
-                                <option value="">Select a State</option>
-                                {statesAndCities.map(state => (
-                                    <option key={state.name} value={state.name}>
-                                        {state.name}
-                                    </option>
-                                ))}
-                            </select>
+                            <input type="text" id="estimate-pickup-state" name="estimatePickupState" value={estimateData.estimatePickupState} onChange={(event) => setEstimateData({ estimatePickupState: event.target.value })} placeholder="Lagos" required />
                         </div>
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-pickup-city">City</label>
-                            <select id="estimate-pickup-city" name="estimatePickupCity" value={estimateData.estimatePickupCity} onChange={(event) => setEstimateData({ estimatePickupCity: event.target.value })} required>
-                                <option value="">Select a City</option>
-                                {/* Dynamically populate the city options based on selected state */}
-                            </select>
+                            <input type="text" id="estimate-pickup-city" name="estimatePickupCity" value={estimateData.estimatePickupCity} onChange={(event) => setEstimateData({ estimatePickupCity: event.target.value })} placeholder="" required />
                         </div>
                     </div>
                     <div className='get-estimate--delivery-details-inputs-info'>
@@ -166,27 +144,11 @@ function GetEstimate() {
                     <div className='get-estimate--delivery-details-inputs-child'>
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-dropoff-state">State</label>
-                            <select
-                                id="estimate-dropoff-state"
-                                name="estimateDropoffState"
-                                value={estimateData.estimatDropoffState}
-                                onChange={handleEstimateDropoffStateChange}
-                                required
-                            >
-                                <option value="">Select a State</option>
-                                {statesAndCities.map(state => (
-                                    <option key={state.name} value={state.name}>
-                                        {state.name}
-                                    </option>
-                                ))}
-                            </select>
+                            <input type="text" id="estimate-dropoff-state" name="estimateDropoffState" value={estimateData.estimateDropoffState} onChange={(event) => setEstimateData({ estimateDropoffState: event.target.value })} placeholder="" required />
                         </div>
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-dropoff-city">City</label>
-                            <select id="estimate-dropoff-city" name="estimateDropoffCity" value={estimateData.estimateDropoffCity} onChange={(event) => setEstimateData({ estimateDropoffCity: event.target.value })} required>
-                                <option value="">Select a City</option>
-                                {/* Dynamically populate the city options based on selected state */}
-                            </select>
+                            <input type="text" id="estimate-dropoff-city" name="estimateDropoffCity" value={estimateData.estimateDropoffCity} onChange={(event) => setEstimateData({ estimateDropoffCity: event.target.value })} placeholder="" required />
                         </div>
                     </div>
                     <div className='get-estimate-button'>

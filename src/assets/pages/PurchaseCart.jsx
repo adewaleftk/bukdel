@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import MobileDashboardNav from '../components/MobileDashboardNav';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Cancel from '../images/cancel.png'
 
 const PurchaseCart = () => {
 
@@ -19,7 +20,7 @@ const PurchaseCart = () => {
     const totalFee = deliveryFee + totalPrice ;
     const logout = usePackageStore(state => state.logout);
     const navigate = useNavigate();
-
+    const [showPopup, setShowPopup] = useState(false);
     const handleLogout = () => {
         logout(); 
         navigate('/');
@@ -27,6 +28,9 @@ const PurchaseCart = () => {
     const user = usePackageStore(state => state.user);
     const userId = user.user_id;
     const userToken = usePackageStore((state) => state.userToken);
+    const handleClosePopup = () => {
+      setShowPopup(false);
+  }
 
     useEffect(() => {
         fetchCart();
@@ -79,8 +83,9 @@ const PurchaseCart = () => {
         if (response.ok) {
           console.log('Checkout successful');
           usePackageStore.setState({ cartItems: [] });
-          setCartItems(0);
-          navigate('/delicacies-dashboard/orderfood-dashboard/purchase/checkout');
+          setCartItems([]);
+          setShowPopup(true);
+          // navigate('/delicacies-dashboard/orderfood-dashboard/purchase/checkout');
         } else {
           console.error('Checkout failed');
           const errorData = await response.json();
@@ -107,7 +112,13 @@ const PurchaseCart = () => {
             console.log('Cart Loaded Successfully');
             setTotalPrice(responseData.total);
             console.log(responseData)
-            setCartItems(responseData.data)
+            if (Array.isArray(responseData.data)) {
+              console.log('Cart Data:', responseData.data);
+              setTotalPrice(responseData.total);
+              setCartItems(responseData.data);
+          } else {
+              console.error('Cart data is not an array:', responseData.data);
+          }
           } else {
             console.error('Failed to fetch cart');
             const responseData = await response.json();
@@ -160,6 +171,24 @@ const PurchaseCart = () => {
               </div>
             </div>
       </div>
+
+      {showPopup && (
+                <div className='popup'>
+                    <div className='popup-content'>
+                        <div className='ready-heading'>
+                            <p className='ready-to-proceed'>Success</p>
+                            <button onClick={handleClosePopup}><img src={Cancel} /></button>
+                        </div>
+                        <p>Your have successfully placed your order.</p>
+                        <p>Now sit back and relax while we</p>
+                        <p>get your meal delivered in a jiffy.</p>
+                        <div className='proceed-to-pay-button'>
+                            <button onClick={handleClosePopup}>Close</button>
+                        </div>
+                        {/* {sendError && <p className="error-message">{sendError}</p>} */}
+                    </div>
+                </div>
+            )}
     </div>
   );
 };
