@@ -39,8 +39,6 @@ function GetEstimate() {
         const isReceiverStateValid = estimateData.estimateDropoffState.trim() !== '';
         const isReceiverCityValid = estimateData.estimateDropoffCity.trim() !== '';
 
-
-
         setIsSenderAddressValid(isSenderAddressValid);
         setIsItemCategoryValid(isItemCategoryValid);
         setIsSenderStateValid(isSenderStateValid);
@@ -65,8 +63,23 @@ function GetEstimate() {
 
 
     const handleProceedToGetEstimate = () => {
-        setShowPopup(true);
-    };
+        const isFormValid = validateForm();
+      
+        if (isFormValid) {
+            setShowPopup(true);
+        } else {
+          const firstInvalidInput = document.querySelector('.input-error');
+      
+          if (firstInvalidInput) {
+            window.scrollTo({
+              top: firstInvalidInput.offsetTop - 20,
+              behavior: 'smooth',
+            });
+          }
+        }
+      };
+
+
 
     const handleClosePopup = () => {
         setShowPopup(false);
@@ -101,6 +114,7 @@ function GetEstimate() {
                     <div className='get-estimate--delivery-details-inputs-info'>
                         <label htmlFor="estimate-pickup-address">Pick-Up Address</label>
                         <input type="text" id="estimate-pickup-address" name="estimatePickupAddress" value={estimateData.estimatePickupAddress} onChange={(event) => setEstimateData({ estimatePickupAddress: event.target.value })}  placeholder='2, Akintunde Street, Owo Road' required />
+                        {isSenderAddressValid ? null : <p className="error-message">Sender&apos;s Address is required</p>}
                     </div>
                     <div className='get-estimate--delivery-details-inputs-info'>
                         <label htmlFor="estimate-item-category">Item Category</label>
@@ -108,6 +122,7 @@ function GetEstimate() {
                             <option value="perishable">Perishable</option>
                             <option value="non-perishable">Non-Perishable</option>
                         </select>
+                        {isItemCategoryValid ? null : <p className="error-message">Item Category is required</p>}
                     </div>
                 </div>
                 <div className='get-estimate--delivery-details-inputs'>
@@ -115,10 +130,12 @@ function GetEstimate() {
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-pickup-state">State</label>
                             <input type="text" id="estimate-pickup-state" name="estimatePickupState" value={estimateData.estimatePickupState} onChange={(event) => setEstimateData({ estimatePickupState: event.target.value })} placeholder="Lagos" required />
+                            {isReceiverStateValid ? null : <p className="error-message">Receiver&apos;s State is required</p>}
                         </div>
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-pickup-city">City</label>
                             <input type="text" id="estimate-pickup-city" name="estimatePickupCity" value={estimateData.estimatePickupCity} onChange={(event) => setEstimateData({ estimatePickupCity: event.target.value })} placeholder="" required />
+                            {isReceiverCityValid ? null : <p className="error-message">Receiver&apos;s City is required</p>}
                         </div>
                     </div>
                     <div className='get-estimate--delivery-details-inputs-info'>
@@ -128,16 +145,19 @@ function GetEstimate() {
                             <option value="medium">Medium</option>
                             <option value="large">Large</option>
                         </select>
+                        {isItemSizeValid ? null : <p className="error-message">Item Size is required</p>}
                     </div>
                 </div>
                 <div className='get-estimate--delivery-details-inputs'>
                     <div className='get-estimate--delivery-details-inputs-info'>
                         <label htmlFor="estimate-dropoff-address">Drop-Off Address</label>
-                        <input type="text" id="estimate-dropoff-address" name="estimateDropoffAddress" value={estimateData.estimatDropoffAddress} onChange={(event) => setEstimateData({ estimatDropoffAddress: event.target.value })}  placeholder='2, Akintunde Street, Owo Road' required />
+                        <input type="text" id="estimate-dropoff-address" name="estimateDropoffAddress" value={estimateData.estimateDropoffAddress} onChange={(event) => setEstimateData({ estimateDropoffAddress: event.target.value })}  placeholder='2, Akintunde Street, Owo Road' required />
+                        {isReceiverAddressValid ? null : <p className="error-message">Receiver&apos;s Address is required</p>}
                     </div>
                     <div className='get-estimate--delivery-details-inputs-info'>
                         <label htmlFor="estimate-delivery-date">Date of Delivery</label>
                         <input type="date" id="estimate-delivery-date" name="estimateDeliveryDate" value={estimateData.estimateDeliveryDate} onChange={(event) => setEstimateData({ estimateDeliveryDate: event.target.value })} required />
+                        {isDeliveryDateValid ? null : <p className="error-message">Delivery Date is required</p>}
                     </div>
                 </div>
                 <div className='get-estimate--delivery-details-inputs'>
@@ -145,10 +165,12 @@ function GetEstimate() {
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-dropoff-state">State</label>
                             <input type="text" id="estimate-dropoff-state" name="estimateDropoffState" value={estimateData.estimateDropoffState} onChange={(event) => setEstimateData({ estimateDropoffState: event.target.value })} placeholder="" required />
+                            {isReceiverStateValid ? null : <p className="error-message">Receiver&apos;s State is required</p>}
                         </div>
                         <div className='get-estimate--delivery-details-inputs-info'>
                             <label htmlFor="estimate-dropoff-city">City</label>
                             <input type="text" id="estimate-dropoff-city" name="estimateDropoffCity" value={estimateData.estimateDropoffCity} onChange={(event) => setEstimateData({ estimateDropoffCity: event.target.value })} placeholder="" required />
+                            {isReceiverStateValid ? null : <p className="error-message">Receiver&apos;s City is required</p>}
                         </div>
                     </div>
                     <div className='get-estimate-button'>
