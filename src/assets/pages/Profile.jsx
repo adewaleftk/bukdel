@@ -29,7 +29,7 @@ function Profile() {
         <div className='profile-body'>
             <div className='heading'>
                 <div>
-                    <NavLink to="/profile-dashboard">Profile</NavLink>
+                    <NavLink to="/profile-dashboard"></NavLink>
                 </div>
                 <div>
                     <button onClick={handleLogout}>Log Out</button>
@@ -53,23 +53,25 @@ function Profile() {
                     <div className='edit-profile'>
                         <div>
                             <p className='name'>Alternative Phone Number</p>
-                            <p className='name-info'>08123456789</p>
+                            <p className='name-info'>N/A</p>
                         </div>
                         <button>Edit Profile</button>
                     </div>
                 </div>
             </div>
             <div className='profile-info-menu-1'>
-                <div className='profile-info-menu-3'>
+                <div className='profile-info-menu-3' onClick={() => {
+                    window.location.href = "./delicacies-dashboard/history"
+                }}>
                     <div>
                         <img src={TransactionHistory} />
                     </div>
                     <div>
-                        <p>Transaction</p>
+                        <p>Order</p>
                         <p>History</p>
                     </div>
                 </div>
-                <div className='profile-info-menu-3'>
+                {/* <div className='profile-info-menu-3'>
                     <div>
                         <img src={SavedAddresses} />
                     </div>
@@ -77,8 +79,10 @@ function Profile() {
                         <p>Saved</p>
                         <p>Addresses</p>
                     </div>
-                </div>
-                <div className='profile-info-menu-3'>
+                </div> */}
+                <div className='profile-info-menu-3' onClick={() => {
+                    window.location.href = "./forgot-password"
+                }}>
                     <div>
                         <img src={ChangePassword} />
                     </div>
@@ -87,18 +91,23 @@ function Profile() {
                         <p>Password</p>
                     </div>
                 </div>
-            </div>
-            <div className='profile-info-menu-2'>
-                <div className='profile-info-menu-3'>
+                <div className='profile-info-menu-3' onClick={() => {
+                    window.location.href = "./logistics-dashboard/package-history"
+                }}>
                     <div>
                         <img src={OrderHistory} />
                     </div>
                     <div>
-                        <p>Order</p>
+                        <p>Logistics</p>
                         <p>History</p>
                     </div>
                 </div>
-                <div className='profile-info-menu-3'>
+            </div>
+            <div className='profile-info-menu-2'>
+                
+                <div className='profile-info-menu-3' onClick={() => {
+                    alert("Coming Soon...")
+                }}>
                     <div>
                         <img src={Refer} />
                     </div>

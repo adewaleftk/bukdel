@@ -4,13 +4,15 @@ import Delicacies from '../images/delicacies-icon.png'
 import Logistics from '../images/logistics-icon.png'
 import Events from '../images/events-icon.png'
 import Profile from '../images/profile-icon.png'
+
+import ProfilePicture from '../images/profile-picture.png'
 import { NavLink } from 'react-router-dom'
 
 function DashboardNav() {
     
   return (
     <nav className="dashboardnav">
-        <NavLink to="/" id="dashboard-logo">BUKDEL</NavLink>
+        <NavLink to="/" id="dashboard-logo" style={{color: "#fff"}}>BUKDEL</NavLink>
         <NavLink to="/dashboard">
             <img src={Dashboard} />
             Dashboard
@@ -28,7 +30,7 @@ function DashboardNav() {
             Events
         </NavLink>
         <NavLink to="/profile-dashboard">
-            <img src={Profile} />
+            <img style={{width: 20, borderRadius: 30}} src={ProfilePicture} />
             Profile
         </NavLink>
     </nav>

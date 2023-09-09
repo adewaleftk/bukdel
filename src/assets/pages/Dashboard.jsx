@@ -139,7 +139,7 @@ function Dashboard() {
         <div className="dashboard-body">
             <div className="dashboard--logout">
                 <div>
-                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <NavLink to="/dashboard"></NavLink>
                 </div>
                 <div>
                     <button onClick={handleLogout}>Log Out</button>

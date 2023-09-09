@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
-    <div className='hero'>
+    <div className='hero' style={{backgroundColor: "#eee", paddingBlock: 60, marginTop: 0}}>
         <div className='hero-info'>
           <div className='hero-words'>
             <p>Enjoy exceptional</p>

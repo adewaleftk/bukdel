@@ -31,7 +31,7 @@ function ReviewPage() {
     }
 
     const handleProceedToPay = () => {
-        sendItemsToServer();
+        
         setShowPopup(true);
     };
 
@@ -118,7 +118,7 @@ function ReviewPage() {
                     <p>Alternative Phone Number: {receiverData.receiverAltNumber}</p>
                     <p>Drop-Off Address: {receiverData.dropoffAddress},{receiverData.receiverCity},{receiverData.receiverState} State</p>
                     <p>Drop-Off Window: {receiverData.deliveryDate} (between 02:00pm - 05:00pm)</p>
-                    <p className='delivery-fee'>Delivery Fee: </p>
+                    <p className='delivery-fee'>Delivery Fee: N 2000</p>
                     <div className='nav-buttons'>
                         <NavLink to="/logistics-dashboard/send">Edit Details</NavLink>
                         <button className='proceed-to-pay' onClick={handleProceedToPay}>Proceed to Pay</button>

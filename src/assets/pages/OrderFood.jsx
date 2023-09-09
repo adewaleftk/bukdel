@@ -121,7 +121,7 @@ async function fetchFoods() {
       <div className='orderfood-body'>
           <div className='heading'>
                 <div>
-                    <NavLink to="/delicacies-dashboard">Order Food</NavLink>
+                    <NavLink to="/delicacies-dashboard"></NavLink>
                 </div>
                 <div className='heading-cart'>
                     <div className='cart-group'>
@@ -141,21 +141,33 @@ async function fetchFoods() {
             </div>
             <div className='foods-body'>
               <div className='foods-body--heading'>
-                <div>Pasta and Grains</div>
+                <div></div>
                 <div className='pasta-category'>
-                  <div>Category</div>
-                  <div>Pasta and Grains</div>
+                  <div>Food Items</div>
+                  <div>
+                    <select>
+                      <option>
+                        All Categories
+                      </option>
+                      <option>
+                        Food
+                      </option>
+                      <option>
+                        Soft Drinks
+                      </option>
+                    </select>
+                  </div>
                 </div>
               </div>
-              <div className='foods'>
+              <div className='foods' >
                 {foods && foods.map((food, index) => (
-                  <div key={index}>
-                    <img src={food.image} alt={food.name} />
-                    <p>{food.name}</p>
-                    <p>Price: &#8358;{food.price}</p>
-                    <p>In Stock: {food.in_stock}</p>
-                    <p>Description: {food.description}</p>
-                    <button onClick={() => addToCart(food.product_id)}>Add to Cart</button>
+                  <div style={{width: 300, borderRadius: 10, display: "inline-block !important"}} key={index}>
+                    <img style={{ width: 300, marginBottom: 20, borderRadius: 10}} src={food.image} alt={food.name} />
+                    <h4 style={{fontWeight: "900", fontSize: 20, marginBottom: 10}}>{food.name}</h4>
+                    <p style={{fontWeight: "900", fontSize: 12, marginBottom: 10}}>Price: &#8358;{food.price}</p>
+                    <p style={{fontWeight: "900", fontSize: 12, marginBottom: 10}}>In Stock: {food.in_stock}</p>
+                    <p style={{fontWeight: "900", fontSize: 12, marginBottom: 10}}>Description: {food.description}</p>
+                    <button style={{padding: 15, margin: "10px auto"}} onClick={() => addToCart(food.product_id)}>Add to Cart</button>
                   </div>
                 ))}
               </div>

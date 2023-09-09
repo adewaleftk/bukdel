@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
-    <div className='navbar'>
+    <div className='navbar' style={{paddingBlock: 10}}>
         <div className='logo'>
           <NavLink to="/">BUKDEL</NavLink>
         </div>
