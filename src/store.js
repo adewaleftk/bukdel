@@ -35,6 +35,7 @@ const usePackageStore = create((set) => ({
     deliveryDate: '',
     // itemCategory: '',
     dropoffNote: '',
+    paymentType: '',
     // itemSize: '',
     saveReceiverAddress: false,
   },

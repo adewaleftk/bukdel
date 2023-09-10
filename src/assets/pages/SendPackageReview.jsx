@@ -134,11 +134,11 @@ function ReviewPage() {
                             <button onClick={handleClosePopup}><img src={Cancel} /></button>
                         </div>
                         <p>To process your delivery request,you will be charged</p>
-                        <p>a non-refundable fee of $1800. Please review your</p>
+                        <p>a non-refundable fee of #3,000. Please review your</p>
                         <p>delivery details carefully before proceeding with the</p>
                         <p>payment to avoid any errors.</p>
                         <p>Deliveries to incorrect addresses or those outside</p>
-                        <p>Oyo State may result in delays, cancellations, delivery</p>
+                        <p>Lagos State may result in delays, cancellations, delivery</p>
                         <p>rescheduling, or additional charges. Kindly ensure</p>
                         <p>that your package is prepared and labeled correctly</p>
                         <p>before the scheduled pick-up window.</p>
