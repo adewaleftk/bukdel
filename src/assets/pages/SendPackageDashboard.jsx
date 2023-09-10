@@ -88,7 +88,7 @@ function SendPackageDashboard() {
         <div className='send-package-dashboard-body'>
             <div className='heading'>
                 <div>
-                    <NavLink to="/logistics-dashboard">Logistics &gt; Send Packages</NavLink>
+                    <NavLink to="/logistics-dashboard"></NavLink>
                 </div>
                 <div className='heading-cart'>
                     <div>

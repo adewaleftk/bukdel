@@ -2,12 +2,12 @@ import '../styles/whatpeoplesay.css';
 
 function WhatPeopleSay() {
   return (
-    <div className='whatpeoplesay'>
+    <div className='whatpeoplesay' style={{backgroundColor: "rgb(229, 248, 248, .6)", paddingBlock: 20, marginBottom: 40}}>
         <div className='whatpeoplesay-heading'>
             <h3>What People Say About Us</h3>
         </div>
-        <div className='whatpeoplesay-info'>
-            <div>
+        <div className='whatpeoplesay-info' style={{width: "100%", paddingBlock: 20, overflowX: "auto", whiteSpace: "nowrap"}}>
+            <div style={{padding: 10}}>
                 <p>I recently tried ordering food on Bukdel</p>
                 <p>website, and i was pleasantly surprised! The</p>
                 <p>ordering process was quick and easy, and the</p>
@@ -28,32 +28,20 @@ function WhatPeopleSay() {
                 <p>updates. I&apos;m a satisfied customer!</p>
                 <p>Dawud Ibrahim</p>
             </div>
-        </div>
-        <div className='whatpeoplesay-info'>
             <div>
-                <p>I highly recommend their logistics service to</p>
-                <p>anyone looking for reliable shipping solutions.</p>
-                <p>They offer a wide range of shipping options</p>
-                <p>and go the extra mile to ensure customer</p>
-                <p>satisfaction. A trustworthy partner!</p>
-                <p>Joseph Busayo</p>
+                <p>They handle fragile items with utmost care,</p>
+                <p>and their tracking system provides real-time</p>
+                <p>updates. I&apos;m a satisfied customer!</p>
+                <p>Dawud Ibrahim</p>
             </div>
             <div>
-                <p>Ever sice i found out about them, they&apos;ve</p>
-                <p>made my life so much easier. The website is</p>
-                <p>intuitive, and the food options cater to all my</p>
-                <p>dietary preferences.</p>
-                <p>Daniel Ajala</p>
-            </div>
-            <div>
-                <p>I&apos;ve tried several logistics websites, but this</p>
-                <p>one stands out. The customer support is top-</p>
-                <p>notch, and their attention to detail ensures</p>
-                <p>smooth deliveries every time. Two thumbs</p>
-                <p>up!</p>
-                <p>Oladejo James</p>
+                <p>They handle fragile items with utmost care,</p>
+                <p>and their tracking system provides real-time</p>
+                <p>updates. I&apos;m a satisfied customer!</p>
+                <p>Dawud Ibrahim</p>
             </div>
         </div>
+        
     </div>
   )
 }
