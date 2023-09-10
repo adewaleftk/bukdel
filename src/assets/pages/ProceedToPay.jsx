@@ -114,7 +114,7 @@ function ProceedToPay() {
             />
           </div>
         </div>
-        {sendError && <p>{sendError}</p>}
+        {sendError && <p style={{color: "red"}}>{sendError}</p>}
         <div className='pay-ment-buttons'>
           <button onClick={sendItemsToServer}>Continue</button>
           <button onClick={handleBackClick}>Back</button>
