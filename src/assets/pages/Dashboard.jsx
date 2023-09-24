@@ -174,66 +174,6 @@ function Dashboard() {
                 </div>
                 <div className="notifications">
                     <h2>Recent Transactions</h2>
-                    {/* <div className="notifications-details">
-                        <div className="notifications-details-info">
-                            <div>Your package has been delivered</div>
-                            <div>13th April, 2023</div>
-                        </div>
-                        <div className="notifications-details-info">
-                            <div>successfully</div>
-                            <div>1:00PM</div>
-                        </div>
-                    </div>
-                    <div className="notifications-details">
-                        <div className="notifications-details-info">
-                            <div>Your package has been delivered</div>
-                            <div>13th April, 2023</div>
-                        </div>
-                        <div className="notifications-details-info">
-                            <div>successfully</div>
-                            <div>1:00PM</div>
-                        </div>
-                    </div>
-                    <div className="notifications-details">
-                        <div className="notifications-details-info">
-                            <div>Your package has been delivered</div>
-                            <div>13th April, 2023</div>
-                        </div>
-                        <div className="notifications-details-info">
-                            <div>successfully</div>
-                            <div>1:00PM</div>
-                        </div>
-                    </div>
-                    <div className="notifications-details">
-                        <div className="notifications-details-info">
-                            <div>Your food has been picked up by the driver</div>
-                            <div>13th April, 2023</div>
-                        </div>
-                        <div className="notifications-details-info">
-                            <div>and would get to you soon</div>
-                            <div>1:00PM</div>
-                        </div>
-                    </div>
-                    <div className="notifications-details">
-                        <div className="notifications-details-info">
-                            <div>Your order has successfully</div>
-                            <div>13th April, 2023</div>
-                        </div>
-                        <div className="notifications-details-info">
-                            <div>been confirmed</div>
-                            <div>1:00PM</div>
-                        </div>
-                    </div>
-                    <div className="notifications-details">
-                        <div className="notifications-details-info">
-                            <div>You have successfully top-up</div>
-                            <div>13th April, 2023</div>
-                        </div>
-                        <div className="notifications-details-info">
-                            <div>your wallet with &#8358;5,000</div>
-                            <div>1:00PM</div>
-                        </div>
-                    </div> */}
                         {transactionHistory.length === 0 ? (
                         <p>No transactions available.</p>
                     ) : (
